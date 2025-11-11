@@ -1,0 +1,138 @@
+/* Professional Tooltip Styles */
+
+.professional-tooltip {
+  transition: all 0.3s ease;
+  opacity: 1;
+}
+
+.professional-tooltip.light .tooltip-background {
+  fill: white;
+  stroke: #e2e8f0;
+}
+
+.professional-tooltip.dark .tooltip-background {
+  fill: #1f2937;
+  stroke: #374151;
+}
+
+.tooltip-line {
+  transition: all 0.3s ease;
+  stroke-dasharray: 2, 2;
+  animation: dash 1s linear infinite;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -4;
+  }
+}
+
+.tooltip-title {
+  transition: all 0.3s ease;
+}
+
+.tooltip-value {
+  transition: all 0.3s ease;
+}
+
+.tooltip-subtitle {
+  transition: all 0.3s ease;
+}
+
+/* HTML Tooltip Styles */
+.html-tooltip {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 8px 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-family: Arial, sans-serif;
+  transition: all 0.3s ease;
+  opacity: 1;
+  transform: scale(1);
+  animation: tooltipFadeIn 0.3s ease;
+}
+
+.html-tooltip.dark {
+  background: #1f2937;
+  border-color: #374151;
+  color: #f9fafb;
+}
+
+.html-tooltip .tooltip-content {
+  text-align: center;
+  white-space: nowrap;
+}
+
+.html-tooltip .tooltip-title {
+  font-size: 12px;
+  font-weight: 500;
+  color: #333333;
+  margin-bottom: 2px;
+}
+
+.html-tooltip.dark .tooltip-title {
+  color: #f9fafb;
+}
+
+.html-tooltip .tooltip-value {
+  font-size: 14px;
+  font-weight: 700;
+  color: #333333;
+  margin-bottom: 2px;
+}
+
+.html-tooltip.dark .tooltip-value {
+  color: #f9fafb;
+}
+
+.html-tooltip .tooltip-subtitle {
+  font-size: 10px;
+  font-weight: 400;
+  color: #64748b;
+}
+
+.html-tooltip.dark .tooltip-subtitle {
+  color: #9ca3af;
+}
+
+@keyframes tooltipFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .html-tooltip {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+  
+  .html-tooltip .tooltip-title {
+    font-size: 11px;
+  }
+  
+  .html-tooltip .tooltip-value {
+    font-size: 13px;
+  }
+  
+  .html-tooltip .tooltip-subtitle {
+    font-size: 9px;
+  }
+}
+
+/* Accessibility */
+.html-tooltip {
+  role: tooltip;
+}
+
+.professional-tooltip text {
+  user-select: none;
+  pointer-events: none;
+}

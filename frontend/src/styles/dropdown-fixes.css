@@ -1,0 +1,373 @@
+/* Comprehensive Dropdown Fixes */
+/* Addressing all dropdown styling and visibility issues */
+
+/* ===================================
+   GLOBAL DROPDOWN IMPROVEMENTS
+   =================================== */
+
+/* Enhanced GlassDropdown styling for better visibility */
+.glass-dropdown__trigger {
+  background: rgba(255, 255, 255, 0.12) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  border-radius: 16px !important;
+  min-height: 48px !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important;
+}
+
+.glass-dropdown__trigger:hover {
+  background: rgba(255, 255, 255, 0.18) !important;
+  border-color: rgba(255, 255, 255, 0.35) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
+}
+
+.glass-dropdown--open .glass-dropdown__trigger {
+  background: rgba(255, 255, 255, 0.22) !important;
+  border-color: rgba(102, 126, 234, 0.6) !important;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15) !important;
+}
+
+/* Enhanced text visibility */
+.glass-dropdown__text {
+  color: rgba(255, 255, 255, 0.95) !important;
+  font-weight: 500 !important;
+  font-size: 0.95rem !important;
+}
+
+/* Enhanced menu styling */
+.glass-dropdown__menu {
+  background: rgba(255, 255, 255, 0.18) !important;
+  backdrop-filter: blur(25px) !important;
+  -webkit-backdrop-filter: blur(25px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25) !important;
+  margin-top: 8px !important;
+}
+
+/* Enhanced option styling */
+.glass-dropdown__option {
+  color: rgba(255, 255, 255, 0.9) !important;
+  padding: 0.875rem 1rem !important;
+  border-radius: 14px !important;
+  margin-bottom: 0.25rem !important;
+}
+
+.glass-dropdown__option:hover,
+.glass-dropdown__option--focused {
+  background: rgba(255, 255, 255, 0.2) !important;
+  color: rgba(255, 255, 255, 1) !important;
+  transform: translateX(4px) !important;
+}
+
+.glass-dropdown__option--selected {
+  background: rgba(102, 126, 234, 0.3) !important;
+  color: rgba(255, 255, 255, 1) !important;
+  font-weight: 600 !important;
+}
+
+/* ===================================
+   ANALYTICS DASHBOARD FIXES
+   =================================== */
+
+/* Analytics Dashboard Time Period Dropdown */
+.analytics-dashboard .period-selector,
+.dashboard-controls select {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  border-radius: 12px !important;
+  padding: 0.75rem 1rem !important;
+  color: rgba(255, 255, 255, 0.95) !important;
+  font-size: 0.9rem !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  min-width: 150px !important;
+}
+
+.analytics-dashboard .period-selector:hover,
+.dashboard-controls select:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  transform: translateY(-1px) !important;
+}
+
+.analytics-dashboard .period-selector:focus,
+.dashboard-controls select:focus {
+  outline: none !important;
+  border-color: rgba(102, 126, 234, 0.6) !important;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15) !important;
+}
+
+.analytics-dashboard .period-selector option,
+.dashboard-controls select option {
+  background: rgba(15, 23, 42, 0.95) !important;
+  color: rgba(255, 255, 255, 0.95) !important;
+  padding: 0.5rem !important;
+}
+
+/* ===================================
+   BUDGET PAGE FIXES
+   =================================== */
+
+/* Budget Page Month/Year Selectors */
+.budget-container .month-selector {
+  display: flex;
+  gap: 1.5rem;
+  align-items: end;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.budget-container .selector-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 140px;
+}
+
+.budget-container .selector-group label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.budget-container .month-dropdown,
+.budget-container .year-dropdown {
+  min-width: 140px;
+}
+
+/* ===================================
+   TRANSACTIONS PAGE FIXES
+   =================================== */
+
+/* Transactions Page Filter Dropdowns */
+.transactions-container .filter-dropdown {
+  min-width: 150px;
+}
+
+.transactions-container .filters-section {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: end;
+  margin-bottom: 1.5rem;
+}
+
+.transactions-container .filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 120px;
+}
+
+.transactions-container .filter-group label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 0.25rem;
+}
+
+/* ===================================
+   CURRENCY PAGE FIXES
+   =================================== */
+
+/* Currency Page Dropdowns */
+.currency-converter .glass-dropdown,
+.currency-settings .glass-dropdown {
+  min-width: 180px;
+}
+
+/* ===================================
+   SETTINGS PAGE FIXES
+   =================================== */
+
+/* Settings Page Dropdowns */
+.settings-container .glass-dropdown,
+.appearance-section .glass-dropdown {
+  min-width: 200px;
+}
+
+.settings-container .glass-dropdown__trigger {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+/* ===================================
+   FORM DROPDOWN ENHANCEMENTS
+   =================================== */
+
+/* Modal Form Dropdowns */
+.modal-content .form-dropdown,
+.transaction-modal .form-dropdown {
+  margin-bottom: 0.5rem;
+}
+
+.modal-content .form-group label,
+.transaction-modal .form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.875rem;
+}
+
+/* Enhanced Form Group Styling */
+.form-group:has(.glass-dropdown) {
+  margin-bottom: 1.5rem;
+}
+
+.form-group:focus-within label {
+  color: rgba(102, 126, 234, 0.9);
+  font-weight: 600;
+}
+
+/* ===================================
+   RESPONSIVE IMPROVEMENTS
+   =================================== */
+
+@media (max-width: 768px) {
+  .glass-dropdown__trigger {
+    min-height: 44px !important;
+    padding: 0.75rem !important;
+  }
+  
+  .glass-dropdown__text {
+    font-size: 0.9rem !important;
+  }
+  
+  .glass-dropdown__menu {
+    border-radius: 16px !important;
+    max-height: 250px !important;
+  }
+  
+  .budget-container .month-selector {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .budget-container .month-dropdown,
+  .budget-container .year-dropdown {
+    min-width: auto;
+    width: 100%;
+  }
+  
+  .transactions-container .filters-section {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .transactions-container .filter-group {
+    min-width: auto;
+    width: 100%;
+  }
+}
+
+/* ===================================
+   ACCESSIBILITY IMPROVEMENTS
+   =================================== */
+
+.glass-dropdown:focus-visible {
+  outline: 2px solid rgba(102, 126, 234, 0.6) !important;
+  outline-offset: 2px !important;
+}
+
+.glass-dropdown__option:focus-visible {
+  outline: 2px solid rgba(102, 126, 234, 0.6) !important;
+  outline-offset: -2px !important;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .glass-dropdown__trigger {
+    background: rgba(255, 255, 255, 0.3) !important;
+    border-color: rgba(255, 255, 255, 0.6) !important;
+  }
+  
+  .glass-dropdown__text {
+    color: rgba(255, 255, 255, 1) !important;
+    font-weight: 600 !important;
+  }
+  
+  .glass-dropdown__menu {
+    background: rgba(255, 255, 255, 0.4) !important;
+    border-color: rgba(255, 255, 255, 0.7) !important;
+  }
+}
+
+/* ===================================
+   LOADING AND ERROR STATES
+   =================================== */
+
+.glass-dropdown--loading .glass-dropdown__trigger {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.glass-dropdown--loading .glass-dropdown__trigger::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 3rem;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.glass-dropdown--error .glass-dropdown__trigger {
+  border-color: rgba(239, 68, 68, 0.6) !important;
+  background: rgba(239, 68, 68, 0.1) !important;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ===================================
+   PROFESSIONAL MICRO-INTERACTIONS
+   =================================== */
+
+.glass-dropdown__trigger::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.glass-dropdown__trigger:hover::before {
+  left: 100%;
+}
+
+.glass-dropdown__option::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8));
+  transition: width 0.3s ease;
+}
+
+.glass-dropdown__option:hover::after,
+.glass-dropdown__option--focused::after {
+  width: 100%;
+}
+
+.glass-dropdown__option--selected::after {
+  width: 100%;
+  background: linear-gradient(90deg, rgba(102, 126, 234, 1), rgba(118, 75, 162, 1));
+}

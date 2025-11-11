@@ -1,0 +1,468 @@
+/* ===================================
+   CLEAN PROFESSIONAL THEME
+   Simple, clean design without heavy effects
+   =================================== */
+
+:root {
+  /* Clean Professional Colors */
+  --primary-color: #3b82f6;
+  --primary-light: #60a5fa;
+  --primary-dark: #1d4ed8;
+  
+  --secondary-color: #6b7280;
+  --secondary-light: #9ca3af;
+  --secondary-dark: #374151;
+  
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --error-color: #ef4444;
+  
+  /* Clean Backgrounds */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-tertiary: #f1f5f9;
+  --bg-dark: #1e293b;
+  --bg-darker: #0f172a;
+  
+  /* Text Colors */
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --text-light: #9ca3af;
+  --text-white: #ffffff;
+  
+  /* Borders and Shadows */
+  --border-color: #e5e7eb;
+  --border-light: #f3f4f6;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  
+  /* Border Radius */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+}
+
+/* ===================================
+   CLEAN CARD COMPONENTS
+   =================================== */
+
+.clean-card {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: var(--spacing-xl);
+  transition: all var(--transition-normal);
+}
+
+.clean-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.clean-card--secondary {
+  background: var(--bg-secondary);
+}
+
+.clean-card--dark {
+  background: var(--bg-dark);
+  border-color: #374151;
+  color: var(--text-white);
+}
+
+/* ===================================
+   CLEAN BUTTON COMPONENTS
+   =================================== */
+
+.clean-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border: none;
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.clean-btn--primary {
+  background: var(--primary-color);
+  color: var(--text-white);
+}
+
+.clean-btn--primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+.clean-btn--secondary {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.clean-btn--secondary:hover {
+  background: var(--bg-tertiary);
+  border-color: var(--secondary-color);
+}
+
+.clean-btn--outline {
+  background: transparent;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+
+.clean-btn--outline:hover {
+  background: var(--primary-color);
+  color: var(--text-white);
+}
+
+/* ===================================
+   CLEAN INPUT COMPONENTS
+   =================================== */
+
+.clean-input {
+  width: 100%;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  transition: all var(--transition-fast);
+}
+
+.clean-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.clean-input::placeholder {
+  color: var(--text-light);
+}
+
+/* ===================================
+   CLEAN NAVIGATION
+   =================================== */
+
+.clean-sidebar {
+  background: var(--bg-dark);
+  color: var(--text-white);
+  padding: var(--spacing-xl);
+  min-height: 100vh;
+}
+
+.clean-nav-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  color: #d1d5db;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  margin-bottom: var(--spacing-xs);
+}
+
+.clean-nav-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-white);
+}
+
+.clean-nav-item.active {
+  background: var(--primary-color);
+  color: var(--text-white);
+}
+
+/* ===================================
+   CLEAN DASHBOARD LAYOUT
+   =================================== */
+
+.clean-dashboard {
+  background: var(--bg-secondary);
+  min-height: 100vh;
+  padding: var(--spacing-xl);
+}
+
+.clean-dashboard-header {
+  background: var(--bg-primary);
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: var(--spacing-xl);
+}
+
+.clean-dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+}
+
+.clean-stats-card {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+}
+
+.clean-stats-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.clean-stats-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.clean-stats-label {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* ===================================
+   CLEAN MODAL COMPONENTS
+   =================================== */
+
+.clean-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.clean-modal {
+  background: var(--bg-primary);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  padding: var(--spacing-xl);
+  max-width: 500px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.clean-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-lg);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.clean-modal-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.clean-modal-close {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.clean-modal-close:hover {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+/* ===================================
+   CLEAN TABLE COMPONENTS
+   =================================== */
+
+.clean-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bg-primary);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.clean-table th {
+  background: var(--bg-secondary);
+  padding: var(--spacing-md);
+  text-align: left;
+  font-weight: 600;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.clean-table td {
+  padding: var(--spacing-md);
+  border-bottom: 1px solid var(--border-light);
+  color: var(--text-primary);
+}
+
+.clean-table tr:hover {
+  background: var(--bg-secondary);
+}
+
+/* ===================================
+   CLEAN FORM COMPONENTS
+   =================================== */
+
+.clean-form-group {
+  margin-bottom: var(--spacing-lg);
+}
+
+.clean-form-label {
+  display: block;
+  margin-bottom: var(--spacing-sm);
+  font-weight: 500;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+}
+
+.clean-form-error {
+  color: var(--error-color);
+  font-size: 0.75rem;
+  margin-top: var(--spacing-xs);
+}
+
+.clean-form-success {
+  color: var(--success-color);
+  font-size: 0.75rem;
+  margin-top: var(--spacing-xs);
+}
+
+/* ===================================
+   CLEAN LOADING STATES
+   =================================== */
+
+.clean-loading {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--border-color);
+  border-radius: 50%;
+  border-top-color: var(--primary-color);
+  animation: clean-spin 1s ease-in-out infinite;
+}
+
+@keyframes clean-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.clean-skeleton {
+  background: linear-gradient(90deg, var(--bg-secondary) 25%, var(--border-light) 50%, var(--bg-secondary) 75%);
+  background-size: 200% 100%;
+  animation: clean-skeleton 1.5s infinite;
+  border-radius: var(--radius-sm);
+}
+
+@keyframes clean-skeleton {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* ===================================
+   CLEAN UTILITIES
+   =================================== */
+
+.clean-text-primary { color: var(--text-primary); }
+.clean-text-secondary { color: var(--text-secondary); }
+.clean-text-light { color: var(--text-light); }
+.clean-text-white { color: var(--text-white); }
+
+.clean-bg-primary { background: var(--bg-primary); }
+.clean-bg-secondary { background: var(--bg-secondary); }
+.clean-bg-dark { background: var(--bg-dark); }
+
+.clean-border { border: 1px solid var(--border-color); }
+.clean-border-light { border: 1px solid var(--border-light); }
+
+.clean-shadow-sm { box-shadow: var(--shadow-sm); }
+.clean-shadow-md { box-shadow: var(--shadow-md); }
+.clean-shadow-lg { box-shadow: var(--shadow-lg); }
+
+.clean-rounded { border-radius: var(--radius-md); }
+.clean-rounded-lg { border-radius: var(--radius-lg); }
+
+/* ===================================
+   RESPONSIVE DESIGN
+   =================================== */
+
+@media (max-width: 768px) {
+  .clean-dashboard {
+    padding: var(--spacing-md);
+  }
+  
+  .clean-dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  
+  .clean-modal {
+    margin: var(--spacing-md);
+    width: calc(100% - 2rem);
+  }
+  
+  .clean-table {
+    font-size: 0.875rem;
+  }
+  
+  .clean-table th,
+  .clean-table td {
+    padding: var(--spacing-sm);
+  }
+}
+
+/* ===================================
+   DARK MODE SUPPORT
+   =================================== */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: #1f2937;
+    --bg-secondary: #111827;
+    --bg-tertiary: #0f172a;
+    --text-primary: #f9fafb;
+    --text-secondary: #d1d5db;
+    --text-light: #9ca3af;
+    --border-color: #374151;
+    --border-light: #4b5563;
+  }
+}

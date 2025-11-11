@@ -1,0 +1,245 @@
+/* Global GlassDropdown Integration Styles */
+/* Ensures consistent styling across all components */
+
+/* Form Dropdown Styling */
+.form-dropdown,
+.filter-dropdown,
+.period-dropdown,
+.month-dropdown,
+.year-dropdown {
+  width: 100%;
+  min-width: 120px;
+}
+
+/* Component-specific dropdown styling */
+.budget-container .month-selector {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.budget-container .month-dropdown,
+.budget-container .year-dropdown {
+  min-width: 140px;
+}
+
+.transactions-container .filter-dropdown {
+  min-width: 150px;
+}
+
+.goals-container .form-dropdown {
+  margin-bottom: 0.5rem;
+}
+
+.profile-container .form-dropdown {
+  margin-bottom: 0.75rem;
+}
+
+.reports-container .period-dropdown {
+  min-width: 160px;
+}
+
+/* Enhanced form group styling for dropdowns */
+.form-group:has(.form-dropdown) {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.875rem;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Filter section enhancements */
+.filters-section,
+.filter-controls,
+.header-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: end;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 120px;
+}
+
+.filter-group label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Professional hover effects */
+.form-group:hover label,
+.filter-group:hover label {
+  color: rgba(255, 255, 255, 1);
+  transition: color 0.2s ease;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .filters-section,
+  .filter-controls,
+  .header-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .filter-group,
+  .form-dropdown,
+  .filter-dropdown,
+  .period-dropdown,
+  .month-dropdown,
+  .year-dropdown {
+    min-width: auto;
+    width: 100%;
+  }
+  
+  .budget-container .month-selector {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .form-group label,
+  .filter-group label {
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .form-group:hover label,
+  .filter-group:hover label {
+    color: rgba(255, 255, 255, 1);
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .form-group label,
+  .filter-group label {
+    color: rgba(255, 255, 255, 1);
+    font-weight: 600;
+  }
+}
+
+/* Print styles */
+@media print {
+  .form-dropdown,
+  .filter-dropdown,
+  .period-dropdown,
+  .month-dropdown,
+  .year-dropdown {
+    background: white !important;
+    color: black !important;
+    border: 1px solid #ccc !important;
+  }
+}
+
+/* Animation enhancements */
+.form-group,
+.filter-group {
+  transition: all 0.2s ease;
+}
+
+.form-group:hover,
+.filter-group:hover {
+  transform: translateY(-1px);
+}
+
+/* Professional spacing */
+.settings-grid .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-row .form-group {
+  margin-bottom: 1rem;
+}
+
+/* Enhanced visual hierarchy */
+.form-group small {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-style: italic;
+}
+
+/* Professional focus states */
+.form-group:focus-within label,
+.filter-group:focus-within label {
+  color: rgba(102, 126, 234, 0.9);
+  font-weight: 600;
+}
+
+/* Loading states */
+.form-group.loading .form-dropdown,
+.filter-group.loading .filter-dropdown {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Error states */
+.form-group.error label {
+  color: rgba(239, 68, 68, 0.9);
+}
+
+.form-group.error .form-dropdown {
+  border-color: rgba(239, 68, 68, 0.5) !important;
+}
+
+/* Success states */
+.form-group.success label {
+  color: rgba(34, 197, 94, 0.9);
+}
+
+.form-group.success .form-dropdown {
+  border-color: rgba(34, 197, 94, 0.5) !important;
+}
+
+/* Professional micro-interactions */
+.form-group,
+.filter-group {
+  position: relative;
+}
+
+.form-group::before,
+.filter-group::before {
+  content: '';
+  position: absolute;
+  left: -0.5rem;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: transparent;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.form-group:focus-within::before,
+.filter-group:focus-within::before {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Enhanced accessibility */
+.form-group:focus-within,
+.filter-group:focus-within {
+  outline: 2px solid rgba(102, 126, 234, 0.3);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* Professional typography */
+.form-group label,
+.filter-group label {
+  font-feature-settings: 'kern' 1, 'liga' 1;
+  letter-spacing: -0.01em;
+}

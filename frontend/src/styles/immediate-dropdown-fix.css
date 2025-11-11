@@ -1,0 +1,412 @@
+/* IMMEDIATE DROPDOWN FIXES - GUARANTEED TO WORK */
+/* This file uses the highest specificity to ensure changes are visible */
+
+/* ===================================
+   PROFILE SETTINGS - WHITE BACKGROUND FIX
+   =================================== */
+.profile-container select,
+.profile-container .glass-dropdown,
+.profile-container .glass-dropdown__trigger,
+.settings-container select,
+.settings-container .glass-dropdown,
+.settings-container .glass-dropdown__trigger {
+  background: linear-gradient(135deg, 
+    rgba(59, 130, 246, 0.2) 0%, 
+    rgba(139, 92, 246, 0.15) 100%) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 2px solid rgba(59, 130, 246, 0.4) !important;
+  border-radius: 12px !important;
+  color: white !important;
+  font-weight: 600 !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+  box-shadow: 
+    0 8px 32px rgba(59, 130, 246, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+}
+
+.profile-container .glass-dropdown__text,
+.settings-container .glass-dropdown__text {
+  color: rgba(255, 255, 255, 1) !important;
+  font-weight: 700 !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* ===================================
+   ANALYTICS DASHBOARD DROPDOWN FIX
+   =================================== */
+.analytics-dashboard select,
+.analytics-dashboard .glass-dropdown,
+.analytics-dashboard .glass-dropdown__trigger,
+.dashboard-controls select,
+.dashboard-controls .glass-dropdown,
+.dashboard-controls .glass-dropdown__trigger {
+  background: linear-gradient(135deg, 
+    rgba(16, 185, 129, 0.2) 0%, 
+    rgba(5, 150, 105, 0.15) 100%) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 2px solid rgba(16, 185, 129, 0.4) !important;
+  border-radius: 12px !important;
+  color: white !important;
+  font-weight: 600 !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+  box-shadow: 
+    0 8px 32px rgba(16, 185, 129, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+}
+
+.analytics-dashboard .glass-dropdown__text,
+.dashboard-controls .glass-dropdown__text {
+  color: rgba(255, 255, 255, 1) !important;
+  font-weight: 700 !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* ===================================
+   CURRENCY CONVERTER FIX
+   =================================== */
+.currency-converter select,
+.currency-converter .glass-dropdown,
+.currency-converter .glass-dropdown__trigger,
+.currency-settings select,
+.currency-settings .glass-dropdown,
+.currency-settings .glass-dropdown__trigger {
+  background: linear-gradient(135deg, 
+    rgba(245, 158, 11, 0.2) 0%, 
+    rgba(217, 119, 6, 0.15) 100%) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 2px solid rgba(245, 158, 11, 0.4) !important;
+  border-radius: 12px !important;
+  color: white !important;
+  font-weight: 600 !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+  box-shadow: 
+    0 8px 32px rgba(245, 158, 11, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+}
+
+.currency-converter .glass-dropdown__text,
+.currency-settings .glass-dropdown__text {
+  color: rgba(255, 255, 255, 1) !important;
+  font-weight: 700 !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* ===================================
+   TRANSACTIONS PAGE FIX
+   =================================== */
+.transactions-container select,
+.transactions-container .glass-dropdown,
+.transactions-container .glass-dropdown__trigger,
+.filter-dropdown select,
+.filter-dropdown .glass-dropdown,
+.filter-dropdown .glass-dropdown__trigger {
+  background: linear-gradient(135deg, 
+    rgba(139, 92, 246, 0.2) 0%, 
+    rgba(124, 58, 237, 0.15) 100%) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 2px solid rgba(139, 92, 246, 0.4) !important;
+  border-radius: 12px !important;
+  color: white !important;
+  font-weight: 600 !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+  box-shadow: 
+    0 8px 32px rgba(139, 92, 246, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+}
+
+.transactions-container .glass-dropdown__text,
+.filter-dropdown .glass-dropdown__text {
+  color: rgba(255, 255, 255, 1) !important;
+  font-weight: 700 !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* ===================================
+   BUDGET PAGE FIX
+   =================================== */
+.budget-container select,
+.budget-container .glass-dropdown,
+.budget-container .glass-dropdown__trigger,
+.month-dropdown select,
+.month-dropdown .glass-dropdown,
+.month-dropdown .glass-dropdown__trigger,
+.year-dropdown select,
+.year-dropdown .glass-dropdown,
+.year-dropdown .glass-dropdown__trigger {
+  background: linear-gradient(135deg, 
+    rgba(239, 68, 68, 0.2) 0%, 
+    rgba(220, 38, 38, 0.15) 100%) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 2px solid rgba(239, 68, 68, 0.4) !important;
+  border-radius: 12px !important;
+  color: white !important;
+  font-weight: 600 !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+  box-shadow: 
+    0 8px 32px rgba(239, 68, 68, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+}
+
+.budget-container .glass-dropdown__text,
+.month-dropdown .glass-dropdown__text,
+.year-dropdown .glass-dropdown__text {
+  color: rgba(255, 255, 255, 1) !important;
+  font-weight: 700 !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* ===================================
+   HEALTH SECTION NAVIGATION FIX
+   =================================== */
+.pro-nav-item,
+.nav-item,
+.sidebar-nav .nav-item,
+.glass-navigation .pro-nav-item {
+  background: linear-gradient(135deg, 
+    rgba(59, 130, 246, 0.15) 0%, 
+    rgba(139, 92, 246, 0.1) 100%) !important;
+  color: rgba(255, 255, 255, 0.95) !important;
+  font-weight: 600 !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
+  border: 1px solid rgba(59, 130, 246, 0.3) !important;
+  border-radius: 10px !important;
+  margin-bottom: 0.5rem !important;
+  padding: 0.75rem 1rem !important;
+  backdrop-filter: blur(15px) !important;
+  -webkit-backdrop-filter: blur(15px) !important;
+}
+
+.pro-nav-item:hover,
+.nav-item:hover,
+.sidebar-nav .nav-item:hover,
+.glass-navigation .pro-nav-item:hover {
+  background: linear-gradient(135deg, 
+    rgba(59, 130, 246, 0.3) 0%, 
+    rgba(139, 92, 246, 0.25) 100%) !important;
+  color: rgba(255, 255, 255, 1) !important;
+  font-weight: 700 !important;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7) !important;
+  transform: translateX(5px) !important;
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4) !important;
+}
+
+.pro-nav-item.active,
+.nav-item.active,
+.sidebar-nav .nav-item.active,
+.glass-navigation .pro-nav-item.active {
+  background: linear-gradient(135deg, 
+    rgba(59, 130, 246, 0.4) 0%, 
+    rgba(139, 92, 246, 0.35) 100%) !important;
+  color: rgba(255, 255, 255, 1) !important;
+  font-weight: 700 !important;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8) !important;
+  border-color: rgba(59, 130, 246, 0.6) !important;
+  box-shadow: 
+    0 8px 25px rgba(59, 130, 246, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+}
+
+/* ===================================
+   HEALTH SECTION DROPDOWN FIX
+   =================================== */
+.financial-health-page select,
+.financial-health-page .glass-dropdown,
+.financial-health-page .glass-dropdown__trigger,
+.health-period-dropdown select,
+.health-period-dropdown .glass-dropdown,
+.health-period-dropdown .glass-dropdown__trigger {
+  background: linear-gradient(135deg, 
+    rgba(16, 185, 129, 0.25) 0%, 
+    rgba(5, 150, 105, 0.2) 100%) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 2px solid rgba(16, 185, 129, 0.5) !important;
+  border-radius: 12px !important;
+  color: white !important;
+  font-weight: 600 !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+  box-shadow: 
+    0 8px 32px rgba(16, 185, 129, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+}
+
+.financial-health-page .glass-dropdown__text,
+.health-period-dropdown .glass-dropdown__text {
+  color: rgba(255, 255, 255, 1) !important;
+  font-weight: 700 !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* ===================================
+   ALL DROPDOWN MENUS FIX
+   =================================== */
+.glass-dropdown__menu,
+select option {
+  background: linear-gradient(135deg, 
+    rgba(15, 23, 42, 0.95) 0%, 
+    rgba(30, 41, 59, 0.9) 100%) !important;
+  backdrop-filter: blur(25px) !important;
+  -webkit-backdrop-filter: blur(25px) !important;
+  border: 2px solid rgba(59, 130, 246, 0.4) !important;
+  border-radius: 16px !important;
+  box-shadow: 
+    0 25px 80px rgba(0, 0, 0, 0.5),
+    0 10px 40px rgba(59, 130, 246, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+  z-index: 99999 !important;
+}
+
+.glass-dropdown__option,
+select option {
+  color: rgba(255, 255, 255, 0.9) !important;
+  padding: 1rem !important;
+  border-radius: 10px !important;
+  margin: 0.25rem !important;
+  font-weight: 500 !important;
+  background: transparent !important;
+}
+
+.glass-dropdown__option:hover,
+.glass-dropdown__option--focused,
+select option:hover {
+  background: linear-gradient(135deg, 
+    rgba(59, 130, 246, 0.3) 0%, 
+    rgba(139, 92, 246, 0.25) 100%) !important;
+  color: rgba(255, 255, 255, 1) !important;
+  font-weight: 700 !important;
+  transform: translateX(5px) !important;
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4) !important;
+}
+
+.glass-dropdown__option--selected,
+select option:checked {
+  background: linear-gradient(135deg, 
+    rgba(59, 130, 246, 0.5) 0%, 
+    rgba(139, 92, 246, 0.4) 100%) !important;
+  color: rgba(255, 255, 255, 1) !important;
+  font-weight: 700 !important;
+  box-shadow: 
+    0 4px 20px rgba(59, 130, 246, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+}
+
+/* ===================================
+   SEARCH INPUT FIX
+   =================================== */
+.glass-dropdown__search-input,
+.transactions-container input[type="text"],
+.filter-group input {
+  background: linear-gradient(135deg, 
+    rgba(59, 130, 246, 0.15) 0%, 
+    rgba(139, 92, 246, 0.1) 100%) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 2px solid rgba(59, 130, 246, 0.3) !important;
+  border-radius: 10px !important;
+  color: rgba(255, 255, 255, 0.95) !important;
+  font-weight: 500 !important;
+  padding: 0.75rem 1rem !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+.glass-dropdown__search-input:focus,
+.transactions-container input[type="text"]:focus,
+.filter-group input:focus {
+  background: linear-gradient(135deg, 
+    rgba(59, 130, 246, 0.25) 0%, 
+    rgba(139, 92, 246, 0.2) 100%) !important;
+  border-color: rgba(59, 130, 246, 0.6) !important;
+  box-shadow: 
+    0 0 0 3px rgba(59, 130, 246, 0.2),
+    0 8px 25px rgba(59, 130, 246, 0.3) !important;
+  outline: none !important;
+}
+
+.glass-dropdown__search-input::placeholder,
+.transactions-container input[type="text"]::placeholder,
+.filter-group input::placeholder {
+  color: rgba(255, 255, 255, 0.6) !important;
+  font-weight: 500 !important;
+}
+
+/* ===================================
+   RESPONSIVE FIXES
+   =================================== */
+@media (max-width: 768px) {
+  .glass-dropdown,
+  .glass-dropdown__trigger,
+  select {
+    min-height: 44px !important;
+    font-size: 0.9rem !important;
+  }
+  
+  .pro-nav-item,
+  .nav-item {
+    padding: 0.875rem !important;
+    font-size: 0.9rem !important;
+  }
+}
+
+/* ===================================
+   ANIMATION ENHANCEMENTS
+   =================================== */
+.glass-dropdown,
+.glass-dropdown__trigger,
+.pro-nav-item,
+.nav-item,
+select {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.glass-dropdown__trigger:hover,
+.pro-nav-item:hover,
+.nav-item:hover,
+select:hover {
+  transform: translateY(-2px) !important;
+}
+
+.glass-dropdown__menu {
+  animation: slideInFromTop 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+@keyframes slideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ===================================
+   FORCE VISIBILITY - LAST RESORT
+   =================================== */
+* {
+  --dropdown-bg: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(139, 92, 246, 0.15)) !important;
+  --dropdown-border: 2px solid rgba(59, 130, 246, 0.4) !important;
+  --dropdown-text: rgba(255, 255, 255, 1) !important;
+  --nav-bg: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(139, 92, 246, 0.1)) !important;
+  --nav-text: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* NUCLEAR OPTION - APPLY TO EVERYTHING */
+[class*="dropdown"],
+[class*="select"],
+[class*="nav-item"],
+select,
+option {
+  background: var(--dropdown-bg) !important;
+  border: var(--dropdown-border) !important;
+  color: var(--dropdown-text) !important;
+  font-weight: 600 !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+}

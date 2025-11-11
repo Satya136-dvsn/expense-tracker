@@ -1,0 +1,16 @@
+/* Professional Modal Component Styles */
+.professional-modal {
+  /* Styles are imported from professional-modals.css */
+}
+
+/* Additional component-specific styles */
+.professional-btn-danger {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.3), rgba(220, 38, 38, 0.3));
+  border-color: rgba(239, 68, 68, 0.4);
+  color: rgba(239, 68, 68, 1);
+}
+
+.professional-btn-danger:hover {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.4), rgba(220, 38, 38, 0.4));
+  border-color: rgba(239, 68, 68, 0.6);
+}

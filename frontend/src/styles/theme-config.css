@@ -1,0 +1,84 @@
+/* 
+ * Professional Theme Configuration
+ * Easy theme switching for maximum recruiter impact
+ */
+
+/* Default Professional Dark Theme */
+:root {
+  --theme-bg-primary: var(--gradient-bg-dark);
+  --theme-bg-surface: var(--color-neutral-800);
+  --theme-bg-elevated: var(--color-neutral-700);
+  --theme-text-primary: var(--color-neutral-50);
+  --theme-text-secondary: var(--color-neutral-300);
+  --theme-text-muted: var(--color-neutral-400);
+  --theme-border-primary: var(--color-neutral-700);
+  --theme-border-secondary: var(--color-neutral-600);
+}
+
+/* Professional Light Theme Override */
+.theme-light {
+  --theme-bg-primary: var(--gradient-bg-light);
+  --theme-bg-surface: var(--color-neutral-50);
+  --theme-bg-elevated: var(--color-neutral-100);
+  --theme-text-primary: var(--color-neutral-900);
+  --theme-text-secondary: var(--color-neutral-700);
+  --theme-text-muted: var(--color-neutral-500);
+  --theme-border-primary: var(--color-neutral-200);
+  --theme-border-secondary: var(--color-neutral-300);
+}
+
+/* Glassmorphism Theme Variant */
+.theme-glass {
+  --theme-bg-primary: var(--gradient-bg-dark);
+  --theme-bg-surface: var(--glass-bg-medium);
+  --theme-bg-elevated: var(--glass-bg-heavy);
+  --theme-text-primary: var(--color-neutral-50);
+  --theme-text-secondary: var(--color-neutral-300);
+  --theme-text-muted: var(--color-neutral-400);
+  --theme-border-primary: var(--glass-border);
+  --theme-border-secondary: var(--glass-border-light);
+}
+
+/* High Contrast Professional Theme */
+.theme-high-contrast {
+  --theme-bg-primary: #000000;
+  --theme-bg-surface: #1a1a1a;
+  --theme-bg-elevated: #2a2a2a;
+  --theme-text-primary: #ffffff;
+  --theme-text-secondary: #e0e0e0;
+  --theme-text-muted: #a0a0a0;
+  --theme-border-primary: #404040;
+  --theme-border-secondary: #606060;
+}
+
+/* Professional Theme Application */
+body {
+  background: var(--theme-bg-primary);
+  color: var(--theme-text-primary);
+}
+
+.pro-card {
+  background: var(--theme-bg-surface);
+  border-color: var(--theme-border-primary);
+  color: var(--theme-text-primary);
+}
+
+.pro-input {
+  background: var(--theme-bg-elevated);
+  border-color: var(--theme-border-secondary);
+  color: var(--theme-text-primary);
+}
+
+.pro-nav {
+  background: var(--theme-bg-surface);
+  border-color: var(--theme-border-primary);
+}
+
+.pro-nav-item {
+  color: var(--theme-text-secondary);
+}
+
+.pro-nav-item:hover,
+.pro-nav-item.active {
+  color: var(--theme-text-primary);
+}

@@ -1,0 +1,205 @@
+/* Real-time Status Component Styles */
+.realtime-status {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: 999;
+  max-width: 180px;
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.status-icon {
+  font-size: 0.9rem;
+  animation: pulse 2s infinite;
+}
+
+.status-text {
+  color: #4a5568;
+  font-weight: 500;
+}
+
+/* Status-specific styles */
+.status-connected {
+  border-color: rgba(72, 187, 120, 0.3);
+  background: rgba(240, 253, 244, 0.95);
+}
+
+.status-connected .status-text {
+  color: #38a169;
+}
+
+.status-connecting {
+  border-color: rgba(237, 137, 54, 0.3);
+  background: rgba(255, 250, 240, 0.95);
+}
+
+.status-connecting .status-text {
+  color: #d69e2e;
+}
+
+.status-connecting .status-icon {
+  animation: spin 1s linear infinite;
+}
+
+.status-failed {
+  border-color: rgba(229, 62, 62, 0.3);
+  background: rgba(254, 242, 242, 0.95);
+}
+
+.status-failed .status-text {
+  color: #e53e3e;
+}
+
+.status-disconnected {
+  border-color: rgba(160, 174, 192, 0.3);
+  background: rgba(247, 250, 252, 0.95);
+}
+
+.status-disconnected .status-text {
+  color: #718096;
+}
+
+/* Reconnect button */
+.reconnect-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.reconnect-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.reconnect-btn:active {
+  transform: translateY(0);
+}
+
+/* Live indicator */
+.live-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  background: rgba(72, 187, 120, 0.1);
+  border-radius: 12px;
+  border: 1px solid rgba(72, 187, 120, 0.2);
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background: #48bb78;
+  border-radius: 50%;
+  animation: pulse-dot 1.5s infinite;
+}
+
+.live-text {
+  color: #38a169;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse-dot {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .realtime-status {
+    top: 0.5rem;
+    right: 0.5rem;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.75rem;
+    gap: 0.4rem;
+    max-width: 120px;
+  }
+  
+  .status-indicator {
+    gap: 0.3rem;
+  }
+  
+  .reconnect-btn {
+    padding: 0.2rem 0.5rem;
+    font-size: 0.7rem;
+  }
+  
+  .live-text {
+    font-size: 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .realtime-status {
+    top: 0.5rem;
+    right: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.7rem;
+    max-width: 100px;
+  }
+  
+  .status-text {
+    display: none; /* Hide text on very small screens, show only icon */
+  }
+  
+  .live-text {
+    display: none;
+  }
+  
+  .live-indicator {
+    display: none;
+  }
+}

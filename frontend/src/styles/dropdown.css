@@ -1,0 +1,197 @@
+/* ========================================
+   PROFESSIONAL DROPDOWN STYLES
+   ======================================== */
+
+/* Base dropdown styling - Clean and Minimal like the image */
+.custom-dropdown,
+.enhanced-select,
+select.professional-dropdown {
+  /* Reset browser defaults */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  
+  /* Layout */
+  display: block;
+  width: 100%;
+  padding: 10px 32px 10px 12px;
+  
+  /* Typography */
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #333333;
+  
+  /* Visual styling - Clean white background like the image */
+  background-color: #ffffff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23333333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 14px 14px;
+  
+  /* Border and shadow - Subtle like the image */
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  
+  /* Interaction */
+  cursor: pointer;
+  transition: all 0.15s ease;
+  outline: none;
+}
+
+/* Hover state - Subtle like the image */
+.custom-dropdown:hover,
+.enhanced-select:hover,
+select.professional-dropdown:hover {
+  border-color: #9ca3af;
+  background-color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Focus state - Clean and minimal */
+.custom-dropdown:focus,
+.enhanced-select:focus,
+select.professional-dropdown:focus {
+  border-color: #667eea;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  outline: none;
+}
+
+/* Active/Click state */
+.custom-dropdown:active,
+.enhanced-select:active,
+select.professional-dropdown:active {
+  border-color: #667eea;
+}
+
+/* Disabled state */
+.custom-dropdown:disabled,
+.enhanced-select:disabled,
+select.professional-dropdown:disabled {
+  background-color: #f1f5f9;
+  border-color: #e2e8f0;
+  color: #94a3b8;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.custom-dropdown:disabled:hover,
+.enhanced-select:disabled:hover,
+select.professional-dropdown:disabled:hover {
+  transform: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* Option styling - Clean like the image */
+.custom-dropdown option,
+.enhanced-select option,
+select.professional-dropdown option {
+  padding: 10px 12px;
+  background-color: #ffffff;
+  color: #333333;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+/* Hover option - subtle highlight */
+.custom-dropdown option:hover,
+.enhanced-select option:hover,
+select.professional-dropdown option:hover {
+  background-color: #f3f4f6;
+  color: #111827;
+}
+
+/* Selected option - subtle highlight like the image */
+.custom-dropdown option:checked,
+.enhanced-select option:checked,
+select.professional-dropdown option:checked {
+  background-color: #e5e7eb;
+  color: #111827;
+  font-weight: 500;
+}
+
+/* Small variant - matches the image style */
+select.professional-dropdown-sm {
+  padding: 8px 30px 8px 10px;
+  font-size: 13px;
+  background-size: 12px 12px;
+  background-position: right 8px center;
+  border-radius: 5px;
+}
+
+/* Large variant - matches the image style */
+select.professional-dropdown-lg {
+  padding: 12px 36px 12px 14px;
+  font-size: 15px;
+  background-size: 16px 16px;
+  background-position: right 12px center;
+  border-radius: 7px;
+}
+
+/* Compact variant - for filters, matches the image */
+select.professional-dropdown-compact {
+  padding: 10px 32px 10px 12px;
+  font-size: 14px;
+  background-size: 14px 14px;
+  background-position: right 10px center;
+  border-radius: 6px;
+  min-width: 120px;
+}
+
+/* Premium variant - cleaner, like the image */
+select.professional-dropdown-premium {
+  padding: 11px 34px 11px 13px;
+  font-size: 14px;
+  font-weight: 400;
+  border-width: 1px;
+  border-color: #d1d5db;
+  background-color: #ffffff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  min-width: 140px;
+}
+
+select.professional-dropdown-premium:hover {
+  border-color: #9ca3af;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark mode support (optional) */
+@media (prefers-color-scheme: dark) {
+  .custom-dropdown,
+  .enhanced-select,
+  select.professional-dropdown {
+    background-color: #1e293b;
+    color: #f1f5f9;
+    border-color: #475569;
+  }
+  
+  .custom-dropdown option,
+  .enhanced-select option,
+  select.professional-dropdown option {
+    background-color: #1e293b;
+    color: #f1f5f9;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .custom-dropdown,
+  .enhanced-select,
+  select.professional-dropdown {
+    padding: 12px 36px 12px 14px;
+    font-size: 14px;
+  }
+}
+
+/* Print styles */
+@media print {
+  .custom-dropdown,
+  .enhanced-select,
+  select.professional-dropdown {
+    border: 1px solid #000;
+    box-shadow: none;
+  }
+}

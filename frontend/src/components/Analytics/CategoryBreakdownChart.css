@@ -1,0 +1,233 @@
+/* Category Breakdown Chart Styles - Fixed Layout */
+.category-breakdown-chart .category-chart-container {
+  display: flex;
+  gap: 1.5rem;
+  height: 100%;
+  align-items: flex-start;
+  min-height: 350px;
+  padding: 0.5rem;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.category-breakdown-chart .chart-section {
+  flex: 1;
+  min-width: 200px;
+  max-width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.category-breakdown-chart .category-legend {
+  flex: 1;
+  min-width: 180px;
+  max-width: 40%;
+  max-height: 300px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-left: 1rem;
+  padding-right: 0.5rem;
+  border-left: 1px solid #e5e7eb;
+  box-sizing: border-box;
+}
+
+.category-breakdown-chart .legend-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.category-breakdown-chart .legend-header h4 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.category-breakdown-chart .total-amount {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #10b981;
+  background: #ecfdf5;
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+}
+
+.category-breakdown-chart .legend-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.category-breakdown-chart .legend-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  margin-bottom: 0.5rem;
+  background: #ffffff;
+}
+
+.category-breakdown-chart .legend-item:hover {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.category-breakdown-chart .legend-item.dimmed {
+  opacity: 0.5;
+  background: #f3f4f6;
+}
+
+.category-breakdown-chart .legend-color-indicator {
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+.category-breakdown-chart .color-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.category-breakdown-chart .legend-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.category-breakdown-chart .legend-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+
+.category-breakdown-chart .category-name {
+  font-weight: 600;
+  color: #1f2937;
+  font-size: 0.875rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 120px;
+}
+
+.category-breakdown-chart .category-percentage {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #6b7280;
+  background: #f3f4f6;
+  padding: 0.125rem 0.5rem;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.category-breakdown-chart .legend-amount {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #10b981;
+  margin-bottom: 0.125rem;
+}
+
+.category-breakdown-chart .legend-count {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.category-breakdown-chart .no-data-message {
+  text-align: center;
+  padding: 2rem;
+  color: #6b7280;
+}
+
+.category-breakdown-chart .no-data-message p {
+  margin: 0;
+  font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .category-breakdown-chart .category-chart-container {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem;
+    min-height: 600px;
+  }
+  
+  .category-breakdown-chart .chart-section {
+    min-width: unset;
+    max-width: 100%;
+    padding: 1rem;
+    height: 350px;
+  }
+  
+  .category-breakdown-chart .category-legend {
+    min-width: unset;
+    max-width: 100%;
+    max-height: 400px;
+    padding-left: 0;
+    padding-right: 0;
+    border-left: none;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 1.5rem;
+  }
+  
+  .category-breakdown-chart .legend-item {
+    padding: 1rem;
+  }
+  
+  .category-breakdown-chart .legend-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  
+  .category-breakdown-chart .category-name {
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .category-breakdown-chart .category-chart-container {
+    gap: 1rem;
+  }
+  
+  .category-breakdown-chart .chart-section {
+    height: 250px;
+  }
+  
+  .category-breakdown-chart .category-legend {
+    max-height: 250px;
+  }
+  
+  .category-breakdown-chart .legend-item {
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
+  
+  .category-breakdown-chart .legend-label {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+  
+  .category-breakdown-chart .category-percentage {
+    align-self: flex-start;
+  }
+}

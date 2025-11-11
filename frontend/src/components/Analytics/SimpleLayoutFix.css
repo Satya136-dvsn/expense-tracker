@@ -1,0 +1,163 @@
+/* Comprehensive Layout Fixes - Analytics Dashboard */
+
+/* Ensure analytics dashboard doesn't overflow */
+.analytics-dashboard {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  padding-bottom: 3rem;
+}
+
+/* Fix dashboard sections spacing and sizing */
+.analytics-dashboard .dashboard-section {
+  margin-bottom: 2rem;
+}
+
+.analytics-dashboard .dashboard-section.full-width {
+  width: 100%;
+  margin-bottom: 2.5rem;
+}
+
+/* Make charts stack on smaller screens */
+@media (max-width: 1200px) {
+  .analytics-dashboard .dashboard-row {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .analytics-dashboard .dashboard-section.half-width {
+    width: 100%;
+    max-width: 100%;
+    min-height: 500px;
+  }
+  
+  /* Stack category chart sections */
+  .analytics-dashboard .category-breakdown-chart .category-chart-container {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .analytics-dashboard .category-breakdown-chart .chart-section,
+  .analytics-dashboard .category-breakdown-chart .category-legend {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .analytics-dashboard .category-breakdown-chart .category-legend {
+    padding-left: 0;
+    border-left: none;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 1.5rem;
+  }
+}
+
+/* Ensure chart content doesn't overflow */
+.analytics-dashboard .chart-wrapper {
+  width: 100%;
+  max-width: 100%;
+  overflow: visible;
+  min-height: 500px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.analytics-dashboard .chart-content {
+  width: 100%;
+  max-width: 100%;
+  overflow: visible;
+  min-height: 450px;
+  padding: 1rem;
+}
+
+/* Ensure canvas elements fit properly */
+.analytics-dashboard canvas {
+  max-width: 100% !important;
+  width: 100% !important;
+  height: auto !important;
+}
+
+.analytics-dashboard .recharts-responsive-container {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-height: 400px !important;
+}
+
+.analytics-dashboard .recharts-wrapper {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* Fix specific chart containers */
+.analytics-dashboard .category-breakdown-chart,
+.analytics-dashboard .budget-vs-actual-chart,
+.analytics-dashboard .monthly-trends-chart,
+.analytics-dashboard .savings-progress-chart {
+  min-height: 500px;
+}
+
+/* Ensure proper spacing between elements */
+.analytics-dashboard .health-score-content {
+  padding: 1.5rem 0;
+}
+
+.analytics-dashboard .factor-scores {
+  margin: 1.5rem 0;
+}
+
+.analytics-dashboard .recommendations {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+
+/* Fix advanced filters layout */
+.analytics-dashboard .advanced-filters {
+  padding: 2rem;
+  gap: 2rem;
+}
+
+.analytics-dashboard .filter-group {
+  margin-bottom: 1rem;
+}
+
+/* Mobile specific fixes */
+@media (max-width: 768px) {
+  .analytics-dashboard {
+    padding: 1.5rem 1rem 3rem 1rem;
+  }
+  
+  .analytics-dashboard .chart-wrapper {
+    padding: 1.5rem;
+    min-height: 450px;
+  }
+  
+  .analytics-dashboard .chart-content {
+    min-height: 400px;
+    padding: 0.75rem;
+  }
+  
+  .analytics-dashboard .dashboard-section.half-width {
+    min-height: 450px;
+  }
+  
+  .analytics-dashboard .recharts-responsive-container {
+    min-height: 350px !important;
+  }
+}
+
+/* Small mobile fixes */
+@media (max-width: 480px) {
+  .analytics-dashboard {
+    padding: 1rem 0.75rem 2.5rem 0.75rem;
+  }
+  
+  .analytics-dashboard .chart-wrapper {
+    padding: 1rem;
+    min-height: 400px;
+  }
+  
+  .analytics-dashboard .chart-content {
+    min-height: 350px;
+    padding: 0.5rem;
+  }
+}

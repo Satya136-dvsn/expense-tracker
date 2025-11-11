@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Tracker</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='20' y='70' width='10' height='20' fill='%23667eea'/><rect x='40' y='50' width='10' height='40' fill='%23667eea'/><rect x='60' y='30' width='10' height='60' fill='%23667eea'/><rect x='80' y='40' width='10' height='50' fill='%23667eea'/></svg>" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-brand" id="nav-brand" style="cursor: pointer;">
+                <i class="fas fa-chart-bar"></i>
+                <h1>Budget Tracker</h1>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <button class="btn btn-outline" id="login-btn">Sign In</button>
+                <button class="btn btn-primary" id="register-btn">Sign Up</button>
+                <button class="btn btn-outline" id="logout-btn" style="display: none;">Logout</button>
+            </div>
+        </nav>
+
+        <!-- Welcome Section -->
+        <section class="hero" id="welcome-section">
+            <div class="hero-content">
+                <h2>Welcome to Budget Tracker</h2>
+                <p>Take control of your finances with our easy-to-use budget tracking application.</p>
+                <div class="features">
+                    <div class="feature">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Track Expenses</h3>
+                        <p>Monitor your spending patterns</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-piggy-bank"></i>
+                        <h3>Save Money</h3>
+                        <p>Set and achieve savings goals</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h3>Easy to Use</h3>
+                        <p>Simple and intuitive interface</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Login Form -->
+        <section class="form-section" id="login-section" style="display: none;">
+            <div class="auth-container">
+                <div class="auth-left">
+                    <div class="welcome-content">
+                        <h2>Welcome Back!</h2>
+                        <p>Continue your financial journey with Budget Tracker</p>
+                        
+                        <div class="benefits-list">
+                            <div class="benefit-item">
+                                <i class="fas fa-chart-line"></i>
+                                <div>
+                                    <h4>Track Progress</h4>
+                                    <p>Monitor your financial goals and achievements</p>
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-wallet"></i>
+                                <div>
+                                    <h4>Manage Expenses</h4>
+                                    <p>Keep track of every dollar spent and saved</p>
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-lightbulb"></i>
+                                <div>
+                                    <h4>Smart Insights</h4>
+                                    <p>Get personalized recommendations for better budgeting</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="stats">
+                            <div class="stat">
+                                <h3>Welcome</h3>
+                                <p>Back!</p>
+                            </div>
+                            <div class="stat">
+                                <h3>Secure</h3>
+                                <p>Login</p>
+                            </div>
+                            <div class="stat">
+                                <h3>Easy</h3>
+                                <p>Access</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="auth-right">
+                    <div class="form-container">
+                        <h2><i class="fas fa-sign-in-alt"></i> Sign In</h2>
+                        <form id="login-form">
+                            <div class="form-group">
+                                <label for="login-username">Username</label>
+                                <input type="text" id="login-username" name="username" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="login-password">Password</label>
+                                <input type="password" id="login-password" name="password" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-full">Sign In</button>
+                        </form>
+                        <p class="forgot-password"><a href="#" id="forgot-password-link">Forgot Password?</a></p>
+                        <p class="form-switch">Don't have an account? <a href="#" id="switch-to-register">Sign Up here</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Register Form -->
+        <section class="form-section" id="register-section" style="display: none;">
+            <div class="auth-container">
+                <div class="auth-left">
+                    <div class="welcome-content">
+                        <h2>Join Budget Tracker Today!</h2>
+                        <p>Take control of your financial future with our comprehensive budgeting tools.</p>
+                        
+                        <div class="benefits-list">
+                            <div class="benefit-item">
+                                <i class="fas fa-chart-pie"></i>
+                                <div>
+                                    <h4>Smart Analytics</h4>
+                                    <p>Get detailed insights into your spending patterns</p>
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-target"></i>
+                                <div>
+                                    <h4>Goal Setting</h4>
+                                    <p>Set and track your savings and spending goals</p>
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <div>
+                                    <h4>Secure & Private</h4>
+                                    <p>Your financial data is protected with bank-level security</p>
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-mobile-alt"></i>
+                                <div>
+                                    <h4>Always Accessible</h4>
+                                    <p>Access your budget anywhere, anytime</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="auth-right">
+                    <div class="form-container">
+                        <h2><i class="fas fa-user-plus"></i> Sign Up</h2>
+                        <form id="register-form">
+                            <div class="form-group">
+                                <label for="register-username">Username</label>
+                                <input type="text" id="register-username" name="username" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="register-email">Email</label>
+                                <input type="email" id="register-email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="register-password">Password</label>
+                                <input type="password" id="register-password" name="password" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="register-role">Role</label>
+                                <select id="register-role" name="role" required>
+                                    <option value="USER" selected>User</option>
+                                    <option value="ADMIN">Admin</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-full">Sign Up</button>
+                        </form>
+                        <p class="form-switch">Already have an account? <a href="#" id="switch-to-login">Sign In here</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Forgot Password Form -->
+        <section class="form-section" id="forgot-password-section" style="display: none;">
+            <div class="auth-container">
+                <div class="auth-left">
+                    <div class="welcome-content">
+                        <h2>Reset Your Password</h2>
+                        <p>Don't worry! It happens. Please enter the email address associated with your account.</p>
+                        
+                        <div class="benefits-list">
+                            <div class="benefit-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <div>
+                                    <h4>Secure Process</h4>
+                                    <p>Your password reset is protected with advanced security</p>
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <h4>Email Verification</h4>
+                                    <p>We'll send you a secure link to reset your password</p>
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <h4>Quick Recovery</h4>
+                                    <p>Get back to managing your budget in just a few minutes</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="auth-right">
+                    <div class="form-container">
+                        <h2><i class="fas fa-key"></i> Reset Password</h2>
+                        <form id="forgot-password-form">
+                            <div class="form-group">
+                                <label for="reset-email">Email Address</label>
+                                <input type="email" id="reset-email" name="email" required placeholder="Enter your email address">
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-full">Send Reset Link</button>
+                        </form>
+                        <p class="form-switch">Remember your password? <a href="#" id="back-to-login">Sign In here</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dashboard -->
+        <section class="dashboard" id="dashboard-section" style="display: none;">
+            <div class="dashboard-header">
+                <h2>Welcome, <span id="user-name">User</span>!</h2>
+                <p>Here's your budget overview</p>
+            </div>
+            
+            <div class="dashboard-cards">
+                <div class="card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-dollar-sign"></i> Monthly Income</h3>
+                    </div>
+                    <div class="card-body">
+                        <span class="amount" id="monthly-income">$0.00</span>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-shopping-cart"></i> Target Expenses</h3>
+                    </div>
+                    <div class="card-body">
+                        <span class="amount" id="target-expenses">$0.00</span>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-piggy-bank"></i> Current Savings</h3>
+                    </div>
+                    <div class="card-body">
+                        <span class="amount" id="current-savings">$0.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-section">
+                <h3>Profile Information</h3>
+                <div id="profile-info">
+                    <!-- Profile data will be loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Alert Messages -->
+        <div class="alert" id="alert" style="display: none;">
+            <span class="alert-message" id="alert-message"></span>
+            <button class="alert-close" id="alert-close">&times;</button>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

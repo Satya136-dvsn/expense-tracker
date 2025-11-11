@@ -1,0 +1,595 @@
+.tax-planner {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.planner-header {
+  margin-bottom: 2rem;
+}
+
+.planner-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.planner-header p {
+  color: #6b7280;
+  font-size: 1.1rem;
+}
+
+.tax-tabs {
+  margin-bottom: 2rem;
+}
+
+/* Tax Input Form */
+.tax-input-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.875rem;
+}
+
+.form-input {
+  padding: 0.75rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+.form-help {
+  color: #6b7280;
+  font-size: 0.75rem;
+  font-style: italic;
+}
+
+.calculate-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.calculate-button {
+  padding: 1rem 3rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  color: white;
+  border: none;
+  border-radius: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.calculate-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+}
+
+.calculate-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Tax Results */
+.tax-results {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.tax-summary-card {
+  background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+  border: 2px solid #cbd5e1;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: white;
+  border-radius: 0.5rem;
+  border: 1px solid #e5e7eb;
+}
+
+.summary-item .label {
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.summary-item .value {
+  color: #1f2937;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.summary-item .value.total {
+  color: #dc2626;
+  font-size: 1.3rem;
+}
+
+/* Refund/Amount Due Card */
+.refund-card.refund {
+  background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+  border: 2px solid #10b981;
+}
+
+.refund-card.owe {
+  background: linear-gradient(135deg, #fee2e2, #fecaca);
+  border: 2px solid #ef4444;
+}
+
+.refund-amount {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.refund-amount .amount {
+  display: block;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.refund-card.refund .amount {
+  color: #059669;
+}
+
+.refund-card.owe .amount {
+  color: #dc2626;
+}
+
+.refund-amount .description {
+  color: #6b7280;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.withholding-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.breakdown-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 0.5rem;
+}
+
+.breakdown-item.total {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #d1d5db;
+  font-weight: 600;
+}
+
+/* Tax Rates Card */
+.tax-rates-card {
+  background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+  border: 2px solid #8b5cf6;
+}
+
+.rates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.rate-item {
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 0.75rem;
+}
+
+.rate-label {
+  display: block;
+  color: #6b7280;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.rate-value {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #7c3aed;
+  margin-bottom: 0.5rem;
+}
+
+.rate-description {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+/* Deduction Analysis */
+.deduction-analysis-card {
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  border: 2px solid #f59e0b;
+}
+
+.deduction-comparison {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.deduction-option {
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 0.75rem;
+  flex: 1;
+  max-width: 200px;
+}
+
+.deduction-option h4 {
+  color: #374151;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.deduction-amount {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #d97706;
+}
+
+.vs {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #6b7280;
+}
+
+.recommendation {
+  text-align: center;
+}
+
+.recommendation-badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.recommendation-badge.itemize {
+  background: #10b981;
+  color: white;
+}
+
+.recommendation-badge.standard {
+  background: #3b82f6;
+  color: white;
+}
+
+.recommendation p {
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+.benefit {
+  color: #059669;
+  font-weight: 600;
+}
+
+/* Tax Brackets */
+.tax-brackets-card {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+}
+
+.brackets-table {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.brackets-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 1rem;
+  padding: 1rem;
+  background: #374151;
+  color: white;
+  border-radius: 0.5rem;
+  font-weight: 600;
+}
+
+.bracket-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background: white;
+  border-radius: 0.5rem;
+  border: 1px solid #e5e7eb;
+}
+
+.income-range {
+  color: #374151;
+}
+
+.bracket-rate {
+  color: #7c3aed;
+  font-weight: 600;
+}
+
+.bracket-tax {
+  color: #059669;
+  font-weight: 600;
+}
+
+/* Tax Optimization */
+.tax-optimization {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.optimization-summary {
+  background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+  border: 2px solid #10b981;
+}
+
+.optimization-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 0.75rem;
+}
+
+.stat-label {
+  display: block;
+  color: #6b7280;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.stat-value {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #059669;
+}
+
+.stat-value.savings {
+  color: #dc2626;
+}
+
+.optimization-recommendations {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.contribution-optimization {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.contribution-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.contribution-item {
+  padding: 1.5rem;
+  background: white;
+  border-radius: 0.75rem;
+  border: 1px solid #e5e7eb;
+  text-align: center;
+}
+
+.contribution-item h4 {
+  color: #374151;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.contribution-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.contribution-details span {
+  color: #6b7280;
+}
+
+.contribution-details .savings {
+  color: #059669;
+  font-weight: 600;
+}
+
+/* Suggestions */
+.suggestions-card {
+  background: #fefce8;
+  border: 2px solid #eab308;
+}
+
+.suggestions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.suggestion-item {
+  padding: 1.5rem;
+  background: white;
+  border-radius: 0.75rem;
+  border-left: 4px solid #6b7280;
+}
+
+.suggestion-item.priority-high {
+  border-left-color: #dc2626;
+}
+
+.suggestion-item.priority-medium {
+  border-left-color: #f59e0b;
+}
+
+.suggestion-item.priority-low {
+  border-left-color: #10b981;
+}
+
+.suggestion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.suggestion-category {
+  background: #f3f4f6;
+  color: #374151;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.suggestion-priority {
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.suggestion-item.priority-high .suggestion-priority {
+  background: #dc2626;
+  color: white;
+}
+
+.suggestion-item.priority-medium .suggestion-priority {
+  background: #f59e0b;
+  color: white;
+}
+
+.suggestion-item.priority-low .suggestion-priority {
+  background: #10b981;
+  color: white;
+}
+
+.suggestion-title {
+  color: #1f2937;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.suggestion-description {
+  color: #6b7280;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.suggestion-savings {
+  color: #059669;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .tax-planner {
+    padding: 1rem;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rates-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .deduction-comparison {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .vs {
+    transform: rotate(90deg);
+  }
+
+  .brackets-header,
+  .bracket-row {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .optimization-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .contribution-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .planner-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .refund-amount .amount {
+    font-size: 2rem;
+  }
+
+  .rate-value {
+    font-size: 2rem;
+  }
+
+  .calculate-button {
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+  }
+}

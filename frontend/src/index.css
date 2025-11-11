@@ -1,0 +1,155 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  outline: none;
+}
+
+*::before, *::after {
+  content: none !important;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+  overflow-x: hidden;
+  cursor: default;
+}
+
+/* ========================================
+   GLOBAL CLEAN DROPDOWN STYLES (Like Image Sample)
+   ======================================== */
+
+select {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  background-color: white !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23333333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 12px center !important;
+  background-size: 14px !important;
+  padding: 11px 38px 11px 14px !important;
+  border: 2px solid #e5e7eb !important;
+  border-radius: 10px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: #1f2937 !important;
+  cursor: pointer !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+  outline: none !important;
+}
+
+select:hover {
+  border-color: #9ca3af !important;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12) !important;
+  transform: translateY(-1px) !important;
+}
+
+select:focus {
+  border-color: #6366f1 !important;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15), 0 2px 5px rgba(0, 0, 0, 0.1) !important;
+  outline: none !important;
+  transform: translateY(0) !important;
+}
+
+select option {
+  background-color: white !important;
+  color: #333333 !important;
+  padding: 10px 12px !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+}
+
+select option:hover {
+  background-color: #f3f4f6 !important;
+}
+
+select option:checked {
+  background-color: #e5e7eb !important;
+  color: #111827 !important;
+  font-weight: 500 !important;
+}
+
+/* Period selector specific styling - Compact & Professional (Fully Compatible) */
+.period-selector,
+.period-selector-custom {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  position: relative !important;
+  background-color: #ffffff !important;
+  border: 2px solid #e5e7eb !important;
+  border-radius: 12px !important;
+  padding: 12px 40px 12px 16px !important;
+  color: #111827 !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  line-height: 1.5 !important;
+  cursor: pointer !important;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.08), 0 1px 3px 0 rgba(0, 0, 0, 0.06) !important;
+  min-width: 180px !important;
+  max-width: 200px !important;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='7' viewBox='0 0 12 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%234B5563' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 12px center !important;
+  background-size: 12px !important;
+}
+
+.period-selector:hover,
+.period-selector-custom:hover {
+  border-color: #6366f1 !important;
+  background-color: #fafaff !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+  transform: translateY(-2px) !important;
+}
+
+.period-selector:focus,
+.period-selector-custom:focus {
+  outline: none !important;
+  border-color: #4f46e5 !important;
+  background-color: #ffffff !important;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15), 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+  transform: translateY(0) !important;
+}
+
+.period-selector:active,
+.period-selector-custom:active {
+  background-color: #f9fafb !important;
+  border-color: #4338ca !important;
+  transform: scale(0.98) !important;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+}
+
+.period-selector option,
+.period-selector-custom option {
+  padding: 12px 16px !important;
+  color: #1f2937 !important;
+  background-color: #ffffff !important;
+  font-weight: 400 !important;
+  font-size: 15px !important;
+}
+
+.period-selector option:hover,
+.period-selector-custom option:hover {
+  background-color: #f3f4f6 !important;
+}
+
+.period-selector option:checked,
+.period-selector-custom option:checked {
+  background-color: #e0e7ff !important;
+  color: #4f46e5 !important;
+  font-weight: 600 !important;
+}
+

@@ -1,0 +1,299 @@
+version: '3.8'
+
+services:
+  # Service Discovery (Eureka Server)
+  service-discovery:
+    build:
+      context: ./service-discovery
+      dockerfile: Dockerfile
+    container_name: budgetwise-service-discovery
+    ports:
+      - "8761:8761"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - budgetwise-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8761/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Configuration Server
+  config-server:
+    build:
+      context: ./config-server
+      dockerfile: Dockerfile
+    container_name: budgetwise-config-server
+    ports:
+      - "8888:8888"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://service-discovery:8761/eureka
+    depends_on:
+      - service-discovery
+    networks:
+      - budgetwise-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8888/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Redis for Rate Limiting and Caching
+  redis:
+    image: redis:7-alpine
+    container_name: budgetwise-redis
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes
+    volumes:
+      - redis-data:/data
+    networks:
+      - budgetwise-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # MySQL Database
+  mysql:
+    image: mysql:8.0
+    container_name: budgetwise-mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=budgetwise_root_password
+      - MYSQL_DATABASE=budgetwise
+      - MYSQL_USER=budgetwise_user
+      - MYSQL_PASSWORD=budgetwise_password
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./backend/database_setup.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - budgetwise-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # PostgreSQL for AI Service
+  postgres:
+    image: postgres:15-alpine
+    container_name: budgetwise-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=budgetwise_ai
+      - POSTGRES_USER=budgetwise_ai_user
+      - POSTGRES_PASSWORD=budgetwise_ai_password
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - budgetwise-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U budgetwise_ai_user -d budgetwise_ai"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # MongoDB for Community Service
+  mongodb:
+    image: mongo:7
+    container_name: budgetwise-mongodb
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=budgetwise_mongo_user
+      - MONGO_INITDB_ROOT_PASSWORD=budgetwise_mongo_password
+      - MONGO_INITDB_DATABASE=budgetwise_community
+    volumes:
+      - mongodb-data:/data/db
+      - ./community-service/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+    networks:
+      - budgetwise-network
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # API Gateway
+  api-gateway:
+    build:
+      context: ./api-gateway
+      dockerfile: Dockerfile
+    container_name: budgetwise-api-gateway
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://service-discovery:8761/eureka
+      - SPRING_REDIS_HOST=redis
+      - SPRING_REDIS_PORT=6379
+    depends_on:
+      - service-discovery
+      - config-server
+      - redis
+    networks:
+      - budgetwise-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Main Backend Service
+  budgetwise-backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: budgetwise-backend
+    ports:
+      - "8081:8081"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://service-discovery:8761/eureka
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/budgetwise
+      - SPRING_DATASOURCE_USERNAME=budgetwise_user
+      - SPRING_DATASOURCE_PASSWORD=budgetwise_password
+      - SPRING_REDIS_HOST=redis
+      - SPRING_REDIS_PORT=6379
+    depends_on:
+      - service-discovery
+      - config-server
+      - mysql
+      - redis
+    networks:
+      - budgetwise-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8081/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # AI Service
+  ai-service:
+    build:
+      context: ./ai-service
+      dockerfile: Dockerfile
+    container_name: budgetwise-ai-service
+    ports:
+      - "8082:8082"
+    environment:
+      - DATABASE_URL=postgresql://budgetwise_ai_user:budgetwise_ai_password@postgres:5432/budgetwise_ai
+      - REDIS_URL=redis://redis:6379
+      - BUDGETWISE_BACKEND_URL=http://budgetwise-backend:8081
+    depends_on:
+      - postgres
+      - redis
+      - budgetwise-backend
+    networks:
+      - budgetwise-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8082/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Community Service
+  community-service:
+    build:
+      context: ./community-service
+      dockerfile: Dockerfile
+    container_name: budgetwise-community-service
+    ports:
+      - "8083:8083"
+    environment:
+      - NODE_ENV=production
+      - MONGODB_URI=mongodb://budgetwise_mongo_user:budgetwise_mongo_password@mongodb:27017/budgetwise_community?authSource=admin
+      - REDIS_URL=redis://redis:6379
+      - BUDGETWISE_BACKEND_URL=http://budgetwise-backend:8081
+    depends_on:
+      - mongodb
+      - redis
+      - budgetwise-backend
+    networks:
+      - budgetwise-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8083/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Frontend Application
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: budgetwise-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_URL=http://localhost:8080
+      - REACT_APP_WEBSOCKET_URL=ws://localhost:8080
+    depends_on:
+      - api-gateway
+    networks:
+      - budgetwise-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Monitoring Stack
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: budgetwise-prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus-data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--web.enable-lifecycle'
+    networks:
+      - budgetwise-network
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: budgetwise-grafana
+    ports:
+      - "3001:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ./monitoring/grafana/dashboards:/etc/grafana/provisioning/dashboards
+      - ./monitoring/grafana/datasources:/etc/grafana/provisioning/datasources
+    depends_on:
+      - prometheus
+    networks:
+      - budgetwise-network
+
+  zipkin:
+    image: openzipkin/zipkin:latest
+    container_name: budgetwise-zipkin
+    ports:
+      - "9411:9411"
+    networks:
+      - budgetwise-network
+
+networks:
+  budgetwise-network:
+    driver: bridge
+
+volumes:
+  mysql-data:
+  postgres-data:
+  mongodb-data:
+  redis-data:
+  prometheus-data:
+  grafana-data:

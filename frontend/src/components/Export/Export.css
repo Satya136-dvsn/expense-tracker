@@ -1,0 +1,658 @@
+/* Export Page Styles */
+.export-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 2rem 1rem;
+}
+
+.export-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.back-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateX(-2px);
+}
+
+.header-title h1 {
+  color: white;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.header-title p {
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0.25rem 0 0 0;
+  font-size: 1rem;
+}
+
+.export-content {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.export-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.export-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.export-card h3 {
+  color: #1f2937;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.export-card p {
+  color: #64748b;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.6;
+}
+
+/* Date Range Section */
+.date-range-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.date-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.date-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.date-input-group label {
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.875rem;
+}
+
+.date-input {
+  padding: 0.75rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  transition: border-color 0.3s;
+}
+
+.date-input:focus {
+  outline: none;
+  border-color: #10b981;
+}
+
+.quick-date-buttons {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.quick-date-btn {
+  padding: 0.5rem 1rem;
+  border: 2px solid #e2e8f0;
+  background: white;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.quick-date-btn:hover {
+  border-color: #10b981;
+  background: #f0fdf4;
+}
+
+.quick-date-btn.clear {
+  border-color: #f59e0b;
+  color: #f59e0b;
+}
+
+.quick-date-btn.clear:hover {
+  background: #fef3c7;
+  border-color: #f59e0b;
+}
+
+.date-range-display {
+  padding: 1rem;
+  background: #f8fafc;
+  border-radius: 8px;
+  border-left: 4px solid #10b981;
+}
+
+.range-label {
+  font-weight: 600;
+  color: #374151;
+  margin-right: 0.5rem;
+}
+
+.range-value {
+  color: #10b981;
+  font-weight: 500;
+}
+
+/* Export Options */
+.export-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.export-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border: 2px solid #f1f5f9;
+  border-radius: 12px;
+  transition: all 0.3s;
+}
+
+.export-option:hover {
+  border-color: #e2e8f0;
+  background: #f8fafc;
+}
+
+.export-option-info h4 {
+  color: #1f2937;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem 0;
+}
+
+.export-option-info p {
+  color: #64748b;
+  font-size: 0.875rem;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.export-btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  min-width: 120px;
+}
+
+.export-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.export-btn.pdf {
+  background: #dc2626;
+  color: white;
+}
+
+.export-btn.pdf:hover:not(:disabled) {
+  background: #b91c1c;
+  transform: translateY(-1px);
+}
+
+.export-btn.csv {
+  background: #059669;
+  color: white;
+}
+
+.export-btn.csv:hover:not(:disabled) {
+  background: #047857;
+  transform: translateY(-1px);
+}
+
+.export-btn.analytics {
+  background: #7c3aed;
+  color: white;
+}
+
+.export-btn.analytics:hover:not(:disabled) {
+  background: #6d28d9;
+  transform: translateY(-1px);
+}
+
+/* Status Messages */
+.export-card.error {
+  border-left: 4px solid #ef4444;
+  background: #fef2f2;
+}
+
+.export-card.success {
+  border-left: 4px solid #10b981;
+  background: #f0fdf4;
+}
+
+.message-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.message-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.message-content h4 {
+  color: #1f2937;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem 0;
+}
+
+.message-content p {
+  color: #64748b;
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+/* Tips Section */
+.export-card.tips {
+  background: #f8fafc;
+  border: 2px solid #e2e8f0;
+}
+
+.export-card.tips ul {
+  margin: 0;
+  padding-left: 1.5rem;
+  color: #64748b;
+}
+
+.export-card.tips li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+/* Progress Indicator */
+.export-card.progress {
+  border-left: 4px solid #3b82f6;
+  background: #eff6ff;
+}
+
+.progress-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.progress-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.progress-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.progress-bar-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #10b981, #059669);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  font-weight: 600;
+  color: #374151;
+  min-width: 40px;
+  text-align: right;
+}
+
+/* Export Customization */
+.export-customization {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.format-selection h4,
+.include-options h4 {
+  color: #374151;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.format-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.format-option {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.format-option:hover {
+  border-color: #10b981;
+  background: #f0fdf4;
+}
+
+.format-option input[type="radio"] {
+  margin: 0;
+}
+
+.format-option input[type="radio"]:checked + .format-label {
+  color: #10b981;
+  font-weight: 600;
+}
+
+.format-label {
+  font-size: 0.875rem;
+  color: #374151;
+  transition: all 0.3s;
+}
+
+.checkbox-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.checkbox-option {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+  cursor: pointer;
+}
+
+.checkbox-option input[type="checkbox"] {
+  margin: 0;
+  transform: scale(1.1);
+}
+
+.checkbox-option span {
+  font-size: 0.875rem;
+  color: #374151;
+}
+
+/* Enhanced Export Options */
+.option-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.feature {
+  font-size: 0.75rem;
+  color: #059669;
+  background: #f0fdf4;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #bbf7d0;
+}
+
+.export-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.export-btn.small {
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  min-width: 80px;
+}
+
+.export-btn.comprehensive {
+  background: #7c3aed;
+  color: white;
+}
+
+.export-btn.comprehensive:hover:not(:disabled) {
+  background: #6d28d9;
+  transform: translateY(-1px);
+}
+
+.export-btn.excel {
+  background: #059669;
+  color: white;
+}
+
+.export-btn.excel:hover:not(:disabled) {
+  background: #047857;
+  transform: translateY(-1px);
+}
+
+/* Export History */
+.export-history {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.history-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s;
+}
+
+.history-item:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+.history-icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.history-details {
+  flex: 1;
+}
+
+.history-name {
+  font-weight: 600;
+  color: #1f2937;
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+.history-meta {
+  font-size: 0.75rem;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Enhanced Status Messages */
+.dismiss-btn {
+  background: none;
+  border: none;
+  color: #64748b;
+  font-size: 0.75rem;
+  cursor: pointer;
+  text-decoration: underline;
+  margin-top: 0.5rem;
+  padding: 0;
+}
+
+.dismiss-btn:hover {
+  color: #374151;
+}
+
+/* Tips Grid */
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.tip-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.tip-icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+.tip-item strong {
+  color: #1f2937;
+  font-size: 0.875rem;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.tip-item p {
+  color: #64748b;
+  font-size: 0.75rem;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .export-page {
+    padding: 1rem 0.5rem;
+  }
+
+  .export-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .export-card {
+    padding: 1.5rem;
+  }
+
+  .date-inputs {
+    grid-template-columns: 1fr;
+  }
+
+  .export-option {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .export-btn {
+    width: 100%;
+  }
+
+  .quick-date-buttons {
+    justify-content: center;
+  }
+
+  .quick-date-btn {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .export-customization {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .export-buttons {
+    width: 100%;
+  }
+
+  .export-btn.small {
+    flex: 1;
+  }
+
+  .tips-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .option-features {
+    justify-content: flex-start;
+  }
+
+  .history-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .history-meta {
+    flex-wrap: wrap;
+  }
+}

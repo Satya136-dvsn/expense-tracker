@@ -1,0 +1,209 @@
+.market-data {
+  padding: 20px;
+}
+
+.market-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.market-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.market-tabs button.active {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.securities-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.security-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+}
+
+.security-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.security-info .symbol {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1e40af;
+  margin: 0 0 4px 0;
+}
+
+.security-info .name {
+  color: #64748b;
+  font-size: 14px;
+  margin: 0;
+}
+
+.security-price {
+  text-align: right;
+}
+
+.price {
+  display: block;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 4px;
+}
+
+.change {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.security-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.news-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+}
+
+.news-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.news-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0;
+  flex: 1;
+}
+
+.news-meta {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.news-time {
+  color: #64748b;
+  font-size: 12px;
+}
+
+.impact-badge {
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 500;
+  color: white;
+}
+
+.impact-badge.positive {
+  background-color: #10b981;
+}
+
+.impact-badge.negative {
+  background-color: #ef4444;
+}
+
+.impact-badge.neutral {
+  background-color: #6b7280;
+}
+
+.impact-badge.mixed {
+  background-color: #f59e0b;
+}
+
+.news-summary {
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 8px 0 12px 0;
+}
+
+.news-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.market-summary {
+  margin-bottom: 24px;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+}
+
+.summary-item {
+  text-align: center;
+  padding: 12px;
+}
+
+.summary-item .label {
+  display: block;
+  color: #64748b;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.summary-item .value {
+  display: block;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.value.status.open {
+  color: #10b981;
+}
+
+.value.positive {
+  color: #10b981;
+}
+
+.value.negative {
+  color: #ef4444;
+}
+
+.watchlist-section {
+  margin-bottom: 24px;
+}
+
+.watchlist-empty {
+  text-align: center;
+  padding: 40px 20px;
+  color: #64748b;
+}
+
+.add-btn {
+  margin-top: 12px;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}

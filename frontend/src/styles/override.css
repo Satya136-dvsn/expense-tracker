@@ -1,0 +1,49 @@
+/* AGGRESSIVE SCROLL FIX - Override all potential scroll issues */
+
+/* Completely control the viewport */
+html {
+    height: 100%;
+    max-height: 100vh;
+    overflow: hidden !important;
+}
+
+body {
+    height: 100vh;
+    max-height: 100vh;
+    overflow: hidden !important;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+#root {
+    height: 100vh;
+    max-height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Hide any potential cursor elements */
+* {
+    caret-color: transparent !important;
+    cursor: default !important;
+}
+
+/* Remove any potential pseudo-content */
+*::before, *::after {
+    content: "" !important;
+    display: none !important;
+}
+
+/* Force sections to have proper spacing */
+.hero, .form-section {
+    position: relative;
+}
+
+/* Ensure features have proper spacing */
+.features {
+    overflow: visible;
+}

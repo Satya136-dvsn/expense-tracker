@@ -1,0 +1,320 @@
+/* ===================================
+   RESPONSIVE WRAPPER STYLES
+   =================================== */
+
+.responsive-wrapper {
+  width: 100%;
+  transition: all var(--transition-smooth, 0.3s cubic-bezier(0.4, 0, 0.2, 1));
+}
+
+/* ===================================
+   RESPONSIVE GRID SYSTEM
+   =================================== */
+
+.responsive-grid {
+  display: grid;
+  width: 100%;
+}
+
+.responsive-grid.grid-cols-1 { grid-template-columns: 1fr; }
+.responsive-grid.grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+.responsive-grid.grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+.responsive-grid.grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+.responsive-grid.grid-cols-5 { grid-template-columns: repeat(5, 1fr); }
+.responsive-grid.grid-cols-6 { grid-template-columns: repeat(6, 1fr); }
+
+/* Auto-fit and auto-fill grids */
+.responsive-grid.grid-auto-fit { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+.responsive-grid.grid-auto-fill { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+
+/* ===================================
+   RESPONSIVE FLEX SYSTEM
+   =================================== */
+
+.responsive-flex {
+  display: flex;
+  width: 100%;
+}
+
+.responsive-flex.flex-row { flex-direction: row; }
+.responsive-flex.flex-column { flex-direction: column; }
+.responsive-flex.flex-wrap { flex-wrap: wrap; }
+
+.responsive-flex.items-start { align-items: flex-start; }
+.responsive-flex.items-center { align-items: center; }
+.responsive-flex.items-end { align-items: flex-end; }
+.responsive-flex.items-stretch { align-items: stretch; }
+
+.responsive-flex.justify-start { justify-content: flex-start; }
+.responsive-flex.justify-center { justify-content: center; }
+.responsive-flex.justify-end { justify-content: flex-end; }
+.responsive-flex.justify-between { justify-content: space-between; }
+.responsive-flex.justify-around { justify-content: space-around; }
+.responsive-flex.justify-evenly { justify-content: space-evenly; }
+
+/* ===================================
+   RESPONSIVE TEXT SYSTEM
+   =================================== */
+
+.responsive-text {
+  line-height: 1.5;
+  transition: font-size var(--transition-smooth, 0.3s cubic-bezier(0.4, 0, 0.2, 1));
+}
+
+.responsive-text.text-xs { font-size: var(--font-size-xs, 0.75rem); }
+.responsive-text.text-sm { font-size: var(--font-size-sm, 0.875rem); }
+.responsive-text.text-base { font-size: var(--font-size-base, 1rem); }
+.responsive-text.text-lg { font-size: var(--font-size-lg, 1.125rem); }
+.responsive-text.text-xl { font-size: var(--font-size-xl, 1.25rem); }
+.responsive-text.text-2xl { font-size: var(--font-size-2xl, 1.5rem); }
+.responsive-text.text-3xl { font-size: var(--font-size-3xl, 1.875rem); }
+
+.responsive-text.font-light { font-weight: var(--font-weight-light, 300); }
+.responsive-text.font-normal { font-weight: var(--font-weight-normal, 400); }
+.responsive-text.font-medium { font-weight: var(--font-weight-medium, 500); }
+.responsive-text.font-semibold { font-weight: var(--font-weight-semibold, 600); }
+.responsive-text.font-bold { font-weight: var(--font-weight-bold, 700); }
+
+.responsive-text.text-primary { color: var(--text-primary, #ffffff); }
+.responsive-text.text-secondary { color: var(--text-secondary, rgba(255, 255, 255, 0.7)); }
+.responsive-text.text-muted { color: var(--text-muted, rgba(255, 255, 255, 0.5)); }
+
+.responsive-text.text-left { text-align: left; }
+.responsive-text.text-center { text-align: center; }
+.responsive-text.text-right { text-align: right; }
+
+/* ===================================
+   RESPONSIVE SPACING SYSTEM
+   =================================== */
+
+/* Gap utilities */
+.gap-xs { gap: var(--spacing-xs, 0.25rem); }
+.gap-sm { gap: var(--spacing-sm, 0.5rem); }
+.gap-md { gap: var(--spacing-md, 1rem); }
+.gap-lg { gap: var(--spacing-lg, 1.5rem); }
+.gap-xl { gap: var(--spacing-xl, 2rem); }
+.gap-2xl { gap: var(--spacing-2xl, 3rem); }
+
+/* Spacing utilities */
+.spacing-xs { --current-spacing: var(--spacing-xs, 0.25rem); }
+.spacing-sm { --current-spacing: var(--spacing-sm, 0.5rem); }
+.spacing-md { --current-spacing: var(--spacing-md, 1rem); }
+.spacing-lg { --current-spacing: var(--spacing-lg, 1.5rem); }
+.spacing-xl { --current-spacing: var(--spacing-xl, 2rem); }
+.spacing-2xl { --current-spacing: var(--spacing-2xl, 3rem); }
+
+/* Padding utilities */
+.padding-xs { padding: var(--spacing-xs, 0.25rem); }
+.padding-sm { padding: var(--spacing-sm, 0.5rem); }
+.padding-md { padding: var(--spacing-md, 1rem); }
+.padding-lg { padding: var(--spacing-lg, 1.5rem); }
+.padding-xl { padding: var(--spacing-xl, 2rem); }
+.padding-2xl { padding: var(--spacing-2xl, 3rem); }
+
+/* Margin utilities */
+.margin-xs { margin: var(--spacing-xs, 0.25rem); }
+.margin-sm { margin: var(--spacing-sm, 0.5rem); }
+.margin-md { margin: var(--spacing-md, 1rem); }
+.margin-lg { margin: var(--spacing-lg, 1.5rem); }
+.margin-xl { margin: var(--spacing-xl, 2rem); }
+.margin-2xl { margin: var(--spacing-2xl, 3rem); }
+
+/* Directional spacing */
+.mt-xs { margin-top: var(--spacing-xs, 0.25rem); }
+.mt-sm { margin-top: var(--spacing-sm, 0.5rem); }
+.mt-md { margin-top: var(--spacing-md, 1rem); }
+.mt-lg { margin-top: var(--spacing-lg, 1.5rem); }
+.mt-xl { margin-top: var(--spacing-xl, 2rem); }
+
+.mb-xs { margin-bottom: var(--spacing-xs, 0.25rem); }
+.mb-sm { margin-bottom: var(--spacing-sm, 0.5rem); }
+.mb-md { margin-bottom: var(--spacing-md, 1rem); }
+.mb-lg { margin-bottom: var(--spacing-lg, 1.5rem); }
+.mb-xl { margin-bottom: var(--spacing-xl, 2rem); }
+
+.ml-xs { margin-left: var(--spacing-xs, 0.25rem); }
+.ml-sm { margin-left: var(--spacing-sm, 0.5rem); }
+.ml-md { margin-left: var(--spacing-md, 1rem); }
+.ml-lg { margin-left: var(--spacing-lg, 1.5rem); }
+.ml-xl { margin-left: var(--spacing-xl, 2rem); }
+
+.mr-xs { margin-right: var(--spacing-xs, 0.25rem); }
+.mr-sm { margin-right: var(--spacing-sm, 0.5rem); }
+.mr-md { margin-right: var(--spacing-md, 1rem); }
+.mr-lg { margin-right: var(--spacing-lg, 1.5rem); }
+.mr-xl { margin-right: var(--spacing-xl, 2rem); }
+
+/* ===================================
+   RESPONSIVE CONTAINER SYSTEM
+   =================================== */
+
+.responsive-container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ===================================
+   RESPONSIVE IMAGE SYSTEM
+   =================================== */
+
+.responsive-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  transition: all var(--transition-smooth, 0.3s cubic-bezier(0.4, 0, 0.2, 1));
+}
+
+.responsive-image.rounded { border-radius: var(--border-radius-md, 8px); }
+.responsive-image.rounded-lg { border-radius: var(--border-radius-lg, 12px); }
+.responsive-image.rounded-xl { border-radius: var(--border-radius-xl, 20px); }
+.responsive-image.rounded-full { border-radius: 50%; }
+
+/* ===================================
+   BREAKPOINT-SPECIFIC STYLES
+   =================================== */
+
+/* Extra Small (xs) - Mobile Portrait */
+.breakpoint-xs {
+  --responsive-padding: var(--spacing-sm, 0.5rem);
+  --responsive-margin: var(--spacing-sm, 0.5rem);
+  --responsive-gap: var(--spacing-sm, 0.5rem);
+  --responsive-font-size: var(--font-size-sm, 0.875rem);
+}
+
+/* Small (sm) - Mobile Landscape */
+.breakpoint-sm {
+  --responsive-padding: var(--spacing-md, 1rem);
+  --responsive-margin: var(--spacing-md, 1rem);
+  --responsive-gap: var(--spacing-md, 1rem);
+  --responsive-font-size: var(--font-size-base, 1rem);
+}
+
+/* Medium (md) - Tablet */
+.breakpoint-md {
+  --responsive-padding: var(--spacing-lg, 1.5rem);
+  --responsive-margin: var(--spacing-lg, 1.5rem);
+  --responsive-gap: var(--spacing-lg, 1.5rem);
+  --responsive-font-size: var(--font-size-base, 1rem);
+}
+
+/* Large (lg) - Desktop */
+.breakpoint-lg {
+  --responsive-padding: var(--spacing-xl, 2rem);
+  --responsive-margin: var(--spacing-xl, 2rem);
+  --responsive-gap: var(--spacing-xl, 2rem);
+  --responsive-font-size: var(--font-size-lg, 1.125rem);
+}
+
+/* Extra Large (xl) - Large Desktop */
+.breakpoint-xl {
+  --responsive-padding: var(--spacing-xl, 2rem);
+  --responsive-margin: var(--spacing-xl, 2rem);
+  --responsive-gap: var(--spacing-xl, 2rem);
+  --responsive-font-size: var(--font-size-lg, 1.125rem);
+}
+
+/* 2X Large (2xl) - Extra Large Desktop */
+.breakpoint-2xl {
+  --responsive-padding: var(--spacing-2xl, 3rem);
+  --responsive-margin: var(--spacing-2xl, 3rem);
+  --responsive-gap: var(--spacing-2xl, 3rem);
+  --responsive-font-size: var(--font-size-xl, 1.25rem);
+}
+
+/* ===================================
+   DEVICE-SPECIFIC STYLES
+   =================================== */
+
+.mobile {
+  --touch-target-size: 44px;
+}
+
+.mobile .responsive-grid {
+  grid-template-columns: 1fr;
+}
+
+.mobile .responsive-flex {
+  flex-direction: column;
+}
+
+.tablet .responsive-grid.grid-cols-4,
+.tablet .responsive-grid.grid-cols-3 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.desktop .responsive-grid {
+  /* Desktop-specific grid adjustments */
+}
+
+/* ===================================
+   RESPONSIVE UTILITIES
+   =================================== */
+
+/* Hide/Show utilities */
+.hide-mobile { display: block; }
+.hide-tablet { display: block; }
+.hide-desktop { display: block; }
+
+.show-mobile { display: none; }
+.show-tablet { display: none; }
+.show-desktop { display: none; }
+
+@media (max-width: 767px) {
+  .hide-mobile { display: none; }
+  .show-mobile { display: block; }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hide-tablet { display: none; }
+  .show-tablet { display: block; }
+}
+
+@media (min-width: 1024px) {
+  .hide-desktop { display: none; }
+  .show-desktop { display: block; }
+}
+
+/* ===================================
+   RESPONSIVE ANIMATIONS
+   =================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .responsive-wrapper,
+  .responsive-grid,
+  .responsive-flex,
+  .responsive-text,
+  .responsive-image {
+    transition: none;
+    animation: none;
+  }
+}
+
+/* ===================================
+   HIGH CONTRAST SUPPORT
+   =================================== */
+
+@media (prefers-contrast: high) {
+  .responsive-wrapper {
+    border: 1px solid currentColor;
+  }
+}
+
+/* ===================================
+   PRINT STYLES
+   =================================== */
+
+@media print {
+  .responsive-wrapper {
+    background: white;
+    color: black;
+  }
+  
+  .hide-print {
+    display: none;
+  }
+  
+  .responsive-grid {
+    break-inside: avoid;
+  }
+}

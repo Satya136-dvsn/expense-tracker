@@ -1,0 +1,526 @@
+/* ===================================
+   GLOBAL GLASSMORPHISM OVERRIDE
+   Final layer to ensure glassmorphism is applied everywhere
+   =================================== */
+
+/* Force glassmorphism background on all page containers */
+body,
+html,
+#root {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #1e3a8a 100%) !important;
+  color: var(--text-primary, #ffffff) !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+}
+
+/* Ensure all main page containers have glassmorphism */
+.page,
+.page-container,
+.main-page,
+.dashboard,
+.dashboard-page,
+.transactions,
+.transactions-page,
+.budget,
+.budget-page,
+.analytics,
+.analytics-page,
+.profile,
+.profile-page,
+.bills,
+.bills-page,
+.planning,
+.planning-page,
+.investment,
+.investment-page,
+.ai,
+.ai-page,
+.community,
+.community-page,
+.currency,
+.currency-page,
+.banking,
+.banking-page,
+.reports,
+.reports-page,
+.trends,
+.trends-page,
+.export,
+.export-page,
+.notifications,
+.notifications-page {
+  background: transparent !important;
+  color: var(--text-primary, #ffffff) !important;
+  min-height: 100vh !important;
+}
+
+/* Apply glassmorphism to all containers */
+.container,
+.main-container,
+.content-container,
+.page-content,
+.section-container,
+.wrapper,
+.main-wrapper,
+.content-wrapper {
+  background: transparent !important;
+  color: var(--text-primary, #ffffff) !important;
+}
+
+/* Ensure all headers have proper glassmorphism */
+.header,
+.page-header,
+.section-header,
+.content-header {
+  background: var(--glass-bg-light, rgba(255, 255, 255, 0.08)) !important;
+  backdrop-filter: var(--blur-medium, blur(15px)) !important;
+  -webkit-backdrop-filter: var(--blur-medium, blur(15px)) !important;
+  border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.1)) !important;
+  border-radius: var(--radius-xl, 1rem) !important;
+  box-shadow: var(--shadow-glass, 0 8px 32px rgba(0, 0, 0, 0.2)) !important;
+  color: var(--text-on-glass, #ffffff) !important;
+  padding: 2rem !important;
+  margin-bottom: 2rem !important;
+}
+
+/* Apply glassmorphism to all cards and panels */
+.card,
+.panel,
+.widget,
+.component,
+.section,
+.block,
+.item,
+.box {
+  background: var(--card-glass-bg, rgba(255, 255, 255, 0.08)) !important;
+  backdrop-filter: var(--blur-medium, blur(15px)) !important;
+  -webkit-backdrop-filter: var(--blur-medium, blur(15px)) !important;
+  border: 1px solid var(--card-glass-border, rgba(255, 255, 255, 0.12)) !important;
+  border-radius: var(--radius-xl, 1rem) !important;
+  box-shadow: var(--shadow-glass, 0 8px 32px rgba(0, 0, 0, 0.2)) !important;
+  color: var(--text-on-glass, #ffffff) !important;
+  transition: var(--transition, all 0.3s cubic-bezier(0.4, 0, 0.2, 1)) !important;
+  padding: 1.5rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.card:hover,
+.panel:hover,
+.widget:hover,
+.component:hover,
+.section:hover,
+.block:hover,
+.item:hover,
+.box:hover {
+  background: var(--card-glass-hover, rgba(255, 255, 255, 0.15)) !important;
+  border-color: var(--glass-border-hover, rgba(255, 255, 255, 0.2)) !important;
+  box-shadow: var(--shadow-glass-hover, 0 12px 40px rgba(0, 0, 0, 0.3)) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Ensure all text elements have proper colors */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-on-glass, #ffffff) !important;
+  margin-top: 0 !important;
+}
+
+p, span, div, label, a {
+  color: var(--text-on-glass, #ffffff) !important;
+}
+
+.text-secondary,
+.secondary-text,
+.muted,
+.text-muted,
+small,
+.small {
+  color: var(--text-on-glass-secondary, #e2e8f0) !important;
+}
+
+/* Apply glassmorphism to all buttons */
+button,
+.button,
+.btn,
+input[type="submit"],
+input[type="button"],
+.action-button,
+.submit-button {
+  background: var(--glass-bg, rgba(255, 255, 255, 0.05)) !important;
+  backdrop-filter: var(--blur-light, blur(10px)) !important;
+  -webkit-backdrop-filter: var(--blur-light, blur(10px)) !important;
+  border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.1)) !important;
+  border-radius: var(--radius-lg, 0.75rem) !important;
+  color: var(--text-on-glass, #ffffff) !important;
+  font-weight: 600 !important;
+  padding: 0.75rem 1.5rem !important;
+  cursor: pointer !important;
+  transition: var(--transition, all 0.3s cubic-bezier(0.4, 0, 0.2, 1)) !important;
+}
+
+button:hover,
+.button:hover,
+.btn:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover,
+.action-button:hover,
+.submit-button:hover {
+  background: var(--glass-bg-hover, rgba(255, 255, 255, 0.12)) !important;
+  border-color: var(--glass-border-hover, rgba(255, 255, 255, 0.2)) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: var(--shadow-glass-hover, 0 12px 40px rgba(0, 0, 0, 0.3)) !important;
+}
+
+/* Primary button styling */
+.btn-primary,
+.button-primary,
+.primary-button,
+button.primary {
+  background: rgba(59, 130, 246, 0.2) !important;
+  border-color: rgba(59, 130, 246, 0.3) !important;
+  box-shadow: 0 4px 16px rgba(59, 130, 246, 0.2) !important;
+}
+
+.btn-primary:hover,
+.button-primary:hover,
+.primary-button:hover,
+button.primary:hover {
+  background: rgba(59, 130, 246, 0.3) !important;
+  border-color: rgba(59, 130, 246, 0.5) !important;
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3), 0 0 20px rgba(59, 130, 246, 0.3) !important;
+}
+
+/* Apply glassmorphism to all inputs */
+input,
+textarea,
+select,
+.input,
+.form-control,
+.form-input {
+  background: var(--glass-bg, rgba(255, 255, 255, 0.05)) !important;
+  backdrop-filter: var(--blur-light, blur(10px)) !important;
+  -webkit-backdrop-filter: var(--blur-light, blur(10px)) !important;
+  border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.1)) !important;
+  border-radius: var(--radius-lg, 0.75rem) !important;
+  color: var(--text-on-glass, #ffffff) !important;
+  padding: 0.75rem 1rem !important;
+  transition: var(--transition, all 0.3s cubic-bezier(0.4, 0, 0.2, 1)) !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+.input:focus,
+.form-control:focus,
+.form-input:focus {
+  outline: none !important;
+  border-color: rgba(59, 130, 246, 0.5) !important;
+  background: var(--glass-bg-light, rgba(255, 255, 255, 0.08)) !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1), 0 0 20px rgba(59, 130, 246, 0.3) !important;
+}
+
+input::placeholder,
+textarea::placeholder,
+.input::placeholder,
+.form-control::placeholder,
+.form-input::placeholder {
+  color: var(--text-on-glass-secondary, #e2e8f0) !important;
+}
+
+/* Apply glassmorphism to tables */
+table,
+.table,
+.data-table {
+  background: var(--card-glass-bg, rgba(255, 255, 255, 0.08)) !important;
+  backdrop-filter: var(--blur-medium, blur(15px)) !important;
+  -webkit-backdrop-filter: var(--blur-medium, blur(15px)) !important;
+  border: 1px solid var(--card-glass-border, rgba(255, 255, 255, 0.12)) !important;
+  border-radius: var(--radius-xl, 1rem) !important;
+  box-shadow: var(--shadow-glass, 0 8px 32px rgba(0, 0, 0, 0.2)) !important;
+  overflow: hidden !important;
+}
+
+table th,
+.table th,
+.data-table th {
+  background: var(--glass-bg-light, rgba(255, 255, 255, 0.08)) !important;
+  color: var(--text-on-glass, #ffffff) !important;
+  font-weight: 600 !important;
+  padding: 1rem !important;
+  border-bottom: 1px solid var(--glass-border, rgba(255, 255, 255, 0.1)) !important;
+}
+
+table td,
+.table td,
+.data-table td {
+  color: var(--text-on-glass, #ffffff) !important;
+  padding: 0.875rem 1rem !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+table tr:hover,
+.table tr:hover,
+.data-table tr:hover {
+  background: var(--glass-bg-light, rgba(255, 255, 255, 0.08)) !important;
+}
+
+/* Apply glassmorphism to modals */
+.modal,
+.modal-content,
+.dialog,
+.popup {
+  background: var(--glass-bg-light, rgba(255, 255, 255, 0.08)) !important;
+  backdrop-filter: var(--blur-heavy, blur(20px)) !important;
+  -webkit-backdrop-filter: var(--blur-heavy, blur(20px)) !important;
+  border: 1px solid var(--glass-border-light, rgba(255, 255, 255, 0.15)) !important;
+  border-radius: var(--radius-2xl, 1.5rem) !important;
+  box-shadow: var(--shadow-glass-lg, 0 16px 48px rgba(0, 0, 0, 0.25)) !important;
+  color: var(--text-on-glass, #ffffff) !important;
+}
+
+.modal-overlay,
+.dialog-overlay,
+.popup-overlay {
+  background: rgba(0, 0, 0, 0.8) !important;
+  backdrop-filter: var(--blur-light, blur(10px)) !important;
+  -webkit-backdrop-filter: var(--blur-light, blur(10px)) !important;
+}
+
+/* Apply glassmorphism to dropdowns */
+.dropdown,
+.dropdown-menu,
+.select-dropdown,
+.dropdown-content {
+  background: var(--glass-bg-light, rgba(255, 255, 255, 0.08)) !important;
+  backdrop-filter: var(--blur-heavy, blur(20px)) !important;
+  -webkit-backdrop-filter: var(--blur-heavy, blur(20px)) !important;
+  border: 1px solid var(--glass-border-light, rgba(255, 255, 255, 0.15)) !important;
+  border-radius: var(--radius-lg, 0.75rem) !important;
+  box-shadow: var(--shadow-glass-lg, 0 16px 48px rgba(0, 0, 0, 0.25)) !important;
+  color: var(--text-on-glass, #ffffff) !important;
+}
+
+.dropdown-item,
+.dropdown-option {
+  color: var(--text-on-glass, #ffffff) !important;
+  padding: 0.75rem 1rem !important;
+  transition: var(--transition, all 0.3s cubic-bezier(0.4, 0, 0.2, 1)) !important;
+}
+
+.dropdown-item:hover,
+.dropdown-option:hover,
+.dropdown-item.active,
+.dropdown-option.active {
+  background: var(--glass-bg-hover, rgba(255, 255, 255, 0.12)) !important;
+}
+
+/* Apply glassmorphism to alerts and notifications */
+.alert,
+.notification,
+.toast,
+.message {
+  background: var(--glass-bg, rgba(255, 255, 255, 0.05)) !important;
+  backdrop-filter: var(--blur-medium, blur(15px)) !important;
+  -webkit-backdrop-filter: var(--blur-medium, blur(15px)) !important;
+  border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.1)) !important;
+  border-radius: var(--radius-lg, 0.75rem) !important;
+  color: var(--text-on-glass, #ffffff) !important;
+  padding: 1rem 1.5rem !important;
+  box-shadow: var(--shadow-glass, 0 8px 32px rgba(0, 0, 0, 0.2)) !important;
+}
+
+.alert.success,
+.notification.success,
+.toast.success {
+  background: rgba(16, 185, 129, 0.2) !important;
+  border-color: rgba(16, 185, 129, 0.3) !important;
+  color: #10b981 !important;
+}
+
+.alert.warning,
+.notification.warning,
+.toast.warning {
+  background: rgba(245, 158, 11, 0.2) !important;
+  border-color: rgba(245, 158, 11, 0.3) !important;
+  color: #f59e0b !important;
+}
+
+.alert.error,
+.notification.error,
+.toast.error {
+  background: rgba(239, 68, 68, 0.2) !important;
+  border-color: rgba(239, 68, 68, 0.3) !important;
+  color: #ef4444 !important;
+}
+
+.alert.info,
+.notification.info,
+.toast.info {
+  background: rgba(59, 130, 246, 0.2) !important;
+  border-color: rgba(59, 130, 246, 0.3) !important;
+  color: #3b82f6 !important;
+}
+
+/* Apply glassmorphism to badges and tags */
+.badge,
+.tag,
+.label,
+.chip {
+  background: var(--glass-bg, rgba(255, 255, 255, 0.05)) !important;
+  backdrop-filter: var(--blur-light, blur(10px)) !important;
+  -webkit-backdrop-filter: var(--blur-light, blur(10px)) !important;
+  border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.1)) !important;
+  border-radius: var(--radius-lg, 0.75rem) !important;
+  color: var(--text-on-glass, #ffffff) !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  padding: 0.25rem 0.75rem !important;
+  display: inline-block !important;
+}
+
+/* Apply glassmorphism to progress bars */
+.progress,
+.progress-bar,
+.loading-bar {
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: var(--blur-light, blur(10px)) !important;
+  -webkit-backdrop-filter: var(--blur-light, blur(10px)) !important;
+  border-radius: var(--radius-lg, 0.75rem) !important;
+  overflow: hidden !important;
+}
+
+.progress-fill,
+.progress-bar-fill {
+  background: linear-gradient(90deg, #3b82f6, #60a5fa) !important;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.5) !important;
+}
+
+/* Apply glassmorphism to charts and graphs */
+.chart-container,
+.graph-container,
+.analytics-chart {
+  background: var(--card-glass-bg, rgba(255, 255, 255, 0.08)) !important;
+  backdrop-filter: var(--blur-medium, blur(15px)) !important;
+  -webkit-backdrop-filter: var(--blur-medium, blur(15px)) !important;
+  border: 1px solid var(--card-glass-border, rgba(255, 255, 255, 0.12)) !important;
+  border-radius: var(--radius-xl, 1rem) !important;
+  box-shadow: var(--shadow-glass, 0 8px 32px rgba(0, 0, 0, 0.2)) !important;
+  padding: 1.5rem !important;
+}
+
+/* Apply glassmorphism to loading states */
+.loading,
+.spinner,
+.loading-container {
+  background: var(--glass-bg, rgba(255, 255, 255, 0.05)) !important;
+  backdrop-filter: var(--blur-medium, blur(15px)) !important;
+  -webkit-backdrop-filter: var(--blur-medium, blur(15px)) !important;
+  border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.1)) !important;
+  border-radius: var(--radius-xl, 1rem) !important;
+  color: var(--text-on-glass, #ffffff) !important;
+  padding: 2rem !important;
+  text-align: center !important;
+}
+
+/* Ensure proper spacing and layout */
+.grid,
+.grid-container,
+.flex,
+.flex-container {
+  gap: 1.5rem !important;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .card,
+  .panel,
+  .widget,
+  .component,
+  .section,
+  .block,
+  .item,
+  .box {
+    backdrop-filter: var(--blur-light, blur(10px)) !important;
+    -webkit-backdrop-filter: var(--blur-light, blur(10px)) !important;
+    padding: 1rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+  
+  .header,
+  .page-header,
+  .section-header,
+  .content-header {
+    padding: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+  
+  button,
+  .button,
+  .btn {
+    padding: 0.625rem 1rem !important;
+    font-size: 0.875rem !important;
+  }
+  
+  input,
+  textarea,
+  select {
+    padding: 0.625rem 0.875rem !important;
+  }
+}
+
+/* Performance optimizations */
+.card,
+.panel,
+.widget,
+.component,
+.section,
+.block,
+.item,
+.box,
+button,
+.button,
+.btn,
+input,
+textarea,
+select,
+.modal,
+.dropdown {
+  will-change: transform, backdrop-filter !important;
+  transform: translateZ(0) !important;
+}
+
+/* Accessibility improvements */
+*:focus {
+  outline: 2px solid rgba(59, 130, 246, 0.8) !important;
+  outline-offset: 2px !important;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .card:hover,
+  .panel:hover,
+  .widget:hover,
+  button:hover,
+  .btn:hover {
+    transform: translateZ(0) !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .card,
+  .panel,
+  .widget,
+  button,
+  .btn,
+  input,
+  textarea,
+  select {
+    border-width: 2px !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+  }
+}

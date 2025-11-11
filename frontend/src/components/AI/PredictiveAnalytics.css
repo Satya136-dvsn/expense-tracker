@@ -1,0 +1,189 @@
+.predictive-analytics {
+  padding: 20px;
+}
+
+.analytics-header {
+  margin-bottom: 24px;
+}
+
+.period-selector {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.period-selector button.active {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.cash-flow-prediction {
+  margin-bottom: 24px;
+}
+
+.cash-flow-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.flow-item {
+  text-align: center;
+  padding: 16px;
+}
+
+.flow-item .label {
+  display: block;
+  color: #64748b;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.flow-item .value {
+  display: block;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.flow-item.income .value {
+  color: #10b981;
+}
+
+.flow-item.expenses .value {
+  color: #ef4444;
+}
+
+.flow-item.net-flow .value.positive {
+  color: #10b981;
+}
+
+.flow-item.net-flow .value.negative {
+  color: #ef4444;
+}
+
+.category-predictions {
+  margin-bottom: 24px;
+}
+
+.categories-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.category-item {
+  padding: 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+}
+
+.category-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.category-amounts {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.confidence-bar {
+  height: 4px;
+  background-color: #e2e8f0;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.confidence-fill {
+  height: 100%;
+  background-color: #3b82f6;
+  transition: width 0.3s ease;
+}
+
+.goal-predictions {
+  margin-bottom: 24px;
+}
+
+.goals-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.goal-item {
+  padding: 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+}
+
+.goal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.progress-bar {
+  height: 8px;
+  background-color: #e2e8f0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 8px 0;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #10b981;
+  transition: width 0.3s ease;
+}
+
+.goal-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #64748b;
+  margin-top: 8px;
+}
+
+.risk-factors {
+  margin-bottom: 24px;
+}
+
+.risks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.risk-item {
+  padding: 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+}
+
+.risk-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.impact-badge {
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  color: white;
+}
+
+.impact-badge.medium {
+  background-color: #f59e0b;
+}
+
+.impact-badge.positive {
+  background-color: #10b981;
+}

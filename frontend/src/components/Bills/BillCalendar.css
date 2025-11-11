@@ -1,0 +1,498 @@
+.bill-calendar {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.calendar-nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-btn {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+.current-month {
+    margin: 0;
+    color: #2c3e50;
+    font-size: 1.8rem;
+    font-weight: 600;
+    min-width: 250px;
+    text-align: center;
+}
+
+.calendar-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.today-btn {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.today-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+.view-toggle {
+    display: flex;
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 4px;
+}
+
+.view-toggle button {
+    background: transparent;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #6c757d;
+}
+
+.view-toggle button.active {
+    background: white;
+    color: #2c3e50;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.error-message {
+    background-color: #fee;
+    color: #c33;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border-left: 4px solid #c33;
+}
+
+.calendar-container {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 30px;
+}
+
+.calendar-grid {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.weekday-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    background: linear-gradient(135deg, #34495e, #2c3e50);
+}
+
+.weekday {
+    padding: 15px;
+    text-align: center;
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.calendar-day {
+    min-height: 120px;
+    border: 1px solid #e1e8ed;
+    padding: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.calendar-day:hover {
+    background-color: #f8f9fa;
+}
+
+.calendar-day.empty {
+    background-color: #f8f9fa;
+    cursor: default;
+}
+
+.calendar-day.today {
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+    border-color: #2196f3;
+}
+
+.calendar-day.selected {
+    background: linear-gradient(135deg, #e8f5e8, #c8e6c9);
+    border-color: #4CAF50;
+    box-shadow: inset 0 0 0 2px #4CAF50;
+}
+
+.calendar-day.has-bills {
+    background: linear-gradient(135deg, #fff, #f0f8ff);
+}
+
+.day-number {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.day-bills {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.bill-indicator {
+    font-size: 0.7rem;
+    padding: 2px 4px;
+    border-radius: 3px;
+    color: white;
+    font-weight: 600;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.bill-indicator.bill-overdue {
+    background: #e74c3c;
+}
+
+.bill-indicator.bill-due-today {
+    background: #f39c12;
+}
+
+.bill-indicator.bill-reminder {
+    background: #3498db;
+}
+
+.bill-indicator.bill-normal {
+    background: #4CAF50;
+}
+
+.more-bills {
+    font-size: 0.6rem;
+    color: #6c757d;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 2px;
+}
+
+.selected-date-details {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    height: fit-content;
+}
+
+.selected-date-details h3 {
+    margin: 0 0 15px 0;
+    color: #2c3e50;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.selected-date-bills {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.selected-bill {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    border-radius: 8px;
+    border-left: 4px solid #e1e8ed;
+}
+
+.selected-bill.bill-overdue {
+    border-left-color: #e74c3c;
+    background: #fef5f5;
+}
+
+.selected-bill.bill-due-today {
+    border-left-color: #f39c12;
+    background: #fefbf5;
+}
+
+.selected-bill.bill-reminder {
+    border-left-color: #3498db;
+    background: #f5f9fe;
+}
+
+.selected-bill.bill-normal {
+    border-left-color: #4CAF50;
+    background: #f8fff8;
+}
+
+.selected-bill .bill-details {
+    flex: 1;
+}
+
+.selected-bill .bill-name {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 4px;
+}
+
+.selected-bill .bill-category {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.selected-bill .bill-amount {
+    font-weight: 700;
+    color: #27ae60;
+    font-size: 1.1rem;
+}
+
+.list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.date-group {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.date-header {
+    background: linear-gradient(135deg, #34495e, #2c3e50);
+    color: white;
+    margin: 0;
+    padding: 15px 20px;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.date-bills {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.bill-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #e1e8ed;
+    transition: all 0.3s ease;
+}
+
+.bill-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.bill-item.bill-overdue {
+    border-left-color: #e74c3c;
+    background: linear-gradient(135deg, #fff, #fef5f5);
+}
+
+.bill-item.bill-due-today {
+    border-left-color: #f39c12;
+    background: linear-gradient(135deg, #fff, #fefbf5);
+}
+
+.bill-item.bill-reminder {
+    border-left-color: #3498db;
+    background: linear-gradient(135deg, #fff, #f5f9fe);
+}
+
+.bill-item.bill-normal {
+    border-left-color: #4CAF50;
+    background: linear-gradient(135deg, #fff, #f8fff8);
+}
+
+.bill-item .bill-info {
+    flex: 1;
+}
+
+.bill-item .bill-name {
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+}
+
+.bill-item .bill-category {
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+.bill-item .bill-amount {
+    font-weight: 700;
+    color: #27ae60;
+    font-size: 1.2rem;
+    margin: 0 20px;
+}
+
+.bill-status {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-end;
+}
+
+.status-badge {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: white;
+}
+
+.status-badge.overdue {
+    background: #e74c3c;
+}
+
+.status-badge.due-today {
+    background: #f39c12;
+}
+
+.status-badge.reminder {
+    background: #3498db;
+}
+
+.status-badge.auto-pay {
+    background: #4CAF50;
+}
+
+.no-bills {
+    text-align: center;
+    padding: 40px;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-radius: 12px;
+}
+
+.no-bills p {
+    margin: 0;
+    color: #6c757d;
+    font-size: 1.1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .calendar-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .selected-date-details {
+        order: -1;
+    }
+}
+
+@media (max-width: 768px) {
+    .bill-calendar {
+        padding: 15px;
+    }
+    
+    .calendar-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+    
+    .calendar-nav {
+        justify-content: space-between;
+    }
+    
+    .current-month {
+        font-size: 1.4rem;
+        min-width: auto;
+    }
+    
+    .calendar-controls {
+        justify-content: space-between;
+    }
+    
+    .calendar-day {
+        min-height: 80px;
+        padding: 4px;
+    }
+    
+    .bill-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .bill-item .bill-amount {
+        margin: 0;
+        align-self: flex-end;
+    }
+    
+    .bill-status {
+        align-items: flex-start;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .weekday {
+        padding: 10px 4px;
+        font-size: 0.8rem;
+    }
+    
+    .calendar-day {
+        min-height: 60px;
+        padding: 2px;
+    }
+    
+    .day-number {
+        font-size: 0.9rem;
+    }
+    
+    .bill-indicator {
+        font-size: 0.6rem;
+        padding: 1px 2px;
+    }
+    
+    .date-bills {
+        padding: 15px;
+    }
+}

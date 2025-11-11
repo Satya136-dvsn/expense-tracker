@@ -1,0 +1,268 @@
+.investment-dashboard {
+    padding: 24px;
+    background-color: #f8fafc;
+    min-height: 100vh;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding: 0 8px;
+}
+
+.dashboard-header h1 {
+    margin: 0;
+    color: #1e40af;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.dashboard-header p {
+    color: #64748b;
+    margin: 4px 0 0 0;
+}
+
+.refresh-btn {
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.refresh-btn:hover {
+    background-color: #2563eb;
+}
+
+.refresh-btn:disabled {
+    background-color: #94a3b8;
+    cursor: not-allowed;
+}
+
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #e2e8f0;
+    border-top: 4px solid #3b82f6;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.portfolio-summary {
+    margin-bottom: 24px;
+}
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.summary-item {
+    text-align: center;
+    padding: 16px;
+}
+
+.summary-item h3 {
+    margin: 0 0 8px 0;
+    color: #64748b;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.value-large {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.holdings-section {
+    margin-bottom: 24px;
+}
+
+.holdings-table {
+    overflow-x: auto;
+}
+
+.table-header {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1fr;
+    gap: 16px;
+    padding: 12px 16px;
+    background-color: #f1f5f9;
+    border-radius: 6px 6px 0 0;
+    font-weight: 600;
+    color: #475569;
+    font-size: 14px;
+}
+
+.table-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1fr;
+    gap: 16px;
+    padding: 12px 16px;
+    border-bottom: 1px solid #e2e8f0;
+    align-items: center;
+}
+
+.table-row:hover {
+    background-color: #f8fafc;
+}
+
+.symbol {
+    font-weight: 600;
+    color: #1e40af;
+}
+
+.name {
+    color: #475569;
+}
+
+.quick-actions {
+    margin-bottom: 24px;
+}
+
+.action-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+}
+
+.action-btn {
+    padding: 12px 16px;
+    background-color: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.action-btn:hover {
+    background-color: #e2e8f0;
+    border-color: #cbd5e1;
+}
+
+.summary-cards .ant-card {
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.summary-cards .ant-card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.summary-cards .ant-statistic-title {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.summary-cards .ant-statistic-content {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.charts-section .ant-card,
+.analytics-section .ant-card {
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 16px;
+}
+
+.charts-section .ant-card-head-title,
+.analytics-section .ant-card-head-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1890ff;
+}
+
+.empty-chart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    color: #999;
+    font-size: 16px;
+}
+
+.ant-table-thead > tr > th {
+    background-color: #fafafa;
+    font-weight: 600;
+    color: #1890ff;
+}
+
+.ant-table-tbody > tr:hover > td {
+    background-color: #f0f9ff;
+}
+
+.ant-tag {
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.performance-positive {
+    color: #52c41a;
+}
+
+.performance-negative {
+    color: #ff4d4f;
+}
+
+@media (max-width: 768px) {
+    .investment-dashboard {
+        padding: 16px;
+    }
+    
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+    
+    .dashboard-header h2 {
+        font-size: 24px;
+    }
+    
+    .summary-cards .ant-statistic-content {
+        font-size: 20px;
+    }
+    
+    .charts-section .ant-card-head-title,
+    .analytics-section .ant-card-head-title {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 576px) {
+    .investment-dashboard {
+        padding: 12px;
+    }
+    
+    .dashboard-header h2 {
+        font-size: 20px;
+    }
+    
+    .summary-cards .ant-statistic-content {
+        font-size: 18px;
+    }
+}

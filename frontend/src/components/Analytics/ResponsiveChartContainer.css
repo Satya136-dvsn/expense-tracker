@@ -1,0 +1,293 @@
+/* Responsive Chart Container Styles */
+.responsive-chart-container {
+  position: relative;
+  width: 100%;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.responsive-chart-container.fullscreen {
+  border-radius: 0;
+  box-shadow: none;
+  background: #f8fafc;
+  padding: 20px;
+}
+
+/* Mobile Styles */
+.responsive-chart-container.mobile {
+  border-radius: 8px;
+  margin: 0 -16px; /* Extend to screen edges on mobile */
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.responsive-chart-container.tablet {
+  border-radius: 10px;
+}
+
+/* Mobile Header */
+.mobile-chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.mobile-chart-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0;
+  flex: 1;
+}
+
+.mobile-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.mobile-control-btn {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 6px 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #64748b;
+  min-width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-control-btn:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+.mobile-control-btn:active {
+  transform: scale(0.95);
+}
+
+/* Chart Content */
+.chart-content-wrapper {
+  position: relative;
+  height: calc(100% - 60px); /* Account for header/footer */
+  padding: 16px;
+}
+
+.responsive-chart-container.mobile .chart-content-wrapper {
+  height: calc(100% - 80px); /* More space for mobile header/footer */
+  padding: 12px;
+}
+
+.responsive-chart-container.fullscreen .chart-content-wrapper {
+  height: calc(100% - 40px);
+  padding: 20px;
+}
+
+/* Mobile Swipe Indicators */
+.mobile-swipe-indicators {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.swipe-indicator {
+  position: absolute;
+  top: 0;
+  width: 32px;
+  height: 32px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  animation: pulse 2s infinite;
+}
+
+.swipe-indicator.left {
+  left: 8px;
+}
+
+.swipe-indicator.right {
+  right: 8px;
+}
+
+.responsive-chart-container:hover .swipe-indicator {
+  opacity: 0.7;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Mobile Footer */
+.mobile-chart-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 8px 16px;
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  text-align: center;
+}
+
+.swipe-hint {
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+/* Touch Optimizations */
+.responsive-chart-container.mobile {
+  touch-action: pan-x pan-y;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Prevent text selection during swipe */
+.responsive-chart-container.mobile * {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Chart-specific mobile optimizations */
+.responsive-chart-container.mobile canvas {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+/* Tablet Optimizations */
+.responsive-chart-container.tablet .chart-content-wrapper {
+  padding: 16px;
+}
+
+.responsive-chart-container.tablet .mobile-chart-header {
+  padding: 14px 20px;
+}
+
+/* Fullscreen Styles */
+.responsive-chart-container.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  height: 100vh !important;
+  width: 100vw !important;
+  margin: 0;
+}
+
+.responsive-chart-container.fullscreen .mobile-chart-header {
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.responsive-chart-container.fullscreen .mobile-chart-title {
+  font-size: 18px;
+}
+
+.responsive-chart-container.fullscreen .chart-content-wrapper {
+  background: white;
+  border-radius: 12px;
+  margin: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Performance Optimizations */
+.responsive-chart-container {
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Accessibility */
+.mobile-control-btn:focus {
+  outline: 2px solid #10b981;
+  outline-offset: 2px;
+}
+
+.swipe-hint {
+  speak: none;
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .responsive-chart-container {
+    background: #1e293b;
+    color: white;
+  }
+  
+  .mobile-chart-header,
+  .mobile-chart-footer {
+    background: #334155;
+    border-color: #475569;
+  }
+  
+  .mobile-chart-title {
+    color: white;
+  }
+  
+  .mobile-control-btn {
+    background: #475569;
+    border-color: #64748b;
+    color: #e2e8f0;
+  }
+  
+  .mobile-control-btn:hover {
+    background: #64748b;
+  }
+  
+  .swipe-hint {
+    color: #94a3b8;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .responsive-chart-container,
+  .mobile-control-btn,
+  .swipe-indicator {
+    transition: none;
+    animation: none;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .responsive-chart-container {
+    border: 2px solid #000;
+  }
+  
+  .mobile-control-btn {
+    border: 2px solid #000;
+  }
+  
+  .swipe-indicator {
+    background: #000;
+    color: #fff;
+  }
+}

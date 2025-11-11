@@ -1,0 +1,942 @@
+.trends-page {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  min-height: 100vh;
+  padding: 2rem 0;
+}
+
+.trends-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: 20px;
+  padding: 2rem 2.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  border: 2px solid #e2e8f0;
+}
+
+.trends-header .header-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.trends-header .header-title h1 {
+  color: #1e293b;
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0 0 0.5rem 0;
+}
+
+.trends-header .header-title p {
+  color: #64748b;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.trends-header .header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.trends-header .back-btn {
+  background: #f8fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  color: #64748b;
+  margin-right: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.trends-header .back-btn:hover {
+  border-color: #10b981;
+  color: #10b981;
+  background: #f0fdf4;
+}
+
+/* Modern Dropdown Styling - Compact & Professional (Based on Dropdown Example) */
+.period-selector-custom,
+.trends-header .period-selector {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: relative;
+  background-color: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 12px 40px 12px 16px;
+  color: #1f2937;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.4;
+  margin-right: 1rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.08);
+  min-width: 180px;
+  background-image: url("data:image/svg+xml,%3Csvg width='14' height='8' viewBox='0 0 14 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L7 7L13 1' stroke='%236B7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 14px;
+}
+
+.period-selector-custom:hover,
+.trends-header .period-selector:hover {
+  border-color: #9ca3af;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.12);
+  transform: translateY(-1px);
+}
+
+.period-selector-custom:focus,
+.trends-header .period-selector:focus {
+  outline: none;
+  border-color: #6366f1;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 12px 0px rgba(99, 102, 241, 0.2), 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.period-selector-custom:active,
+.trends-header .period-selector:active {
+  background-color: #f9fafb;
+  border-color: #6366f1;
+  transform: translateY(0);
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.08);
+}
+
+.trends-header .action-btn {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 12px rgba(16,185,129,0.15);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.trends-header .action-btn i {
+  font-size: 1rem;
+}
+
+.trends-header .action-btn:hover {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  box-shadow: 0 8px 24px rgba(16,185,129,0.25);
+  transform: translateY(-2px);
+}
+
+.trends-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.trend-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: 20px;
+  padding: 2.5rem;
+  border: 2px solid #e2e8f0;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.trend-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #10b981, #3b82f6, #8b5cf6);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.trend-card:hover {
+  border-color: #10b981;
+  box-shadow: 0 16px 50px rgba(16,185,129,0.12);
+  transform: translateY(-6px);
+}
+
+.trend-card:hover::before {
+  opacity: 1;
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #f1f5f9;
+}
+
+.chart-header h3 {
+  color: #1e293b;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.chart-header .chart-subtitle {
+  color: #64748b;
+  font-size: 0.95rem;
+  margin: 0;
+  font-weight: 500;
+}
+
+.chart-summary {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.current-value {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 2px 4px rgba(16,185,129,0.3));
+  transition: all 0.3s;
+  line-height: 1;
+}
+
+.trend-card:hover .current-value {
+  filter: drop-shadow(0 4px 8px rgba(16,185,129,0.4));
+  transform: scale(1.05);
+}
+
+.trend-indicator.positive {
+  color: #10b981;
+  font-weight: 700;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.trend-indicator.negative {
+  color: #ef4444;
+  font-weight: 700;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.trend-svg {
+  width: 100%;
+  height: 300px;
+  filter: drop-shadow(0 4px 12px rgba(16, 185, 129, 0.08));
+}
+
+/* Data Point Interactions - Enhanced Professional Effects */
+.data-point-group {
+  cursor: pointer;
+}
+
+/* Hover area - becomes slightly visible on hover for feedback */
+.data-point-group:hover .hover-area {
+  fill: #10b981;
+  opacity: 0.08;
+}
+
+/* Outer ring animation on hover */
+.data-point-group:hover .data-point-ring {
+  opacity: 1 !important;
+  animation: pulse-ring 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-ring {
+  0%, 100% {
+    opacity: 0.6;
+    r: 12;
+  }
+  50% {
+    opacity: 1;
+    r: 15;
+  }
+}
+
+/* Inner glow circle animation */
+.data-point-group:hover .data-point-glow {
+  opacity: 0.25 !important;
+  animation: pulse-glow 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+/* Main data point enlarges and glows on hover */
+.data-point-group .data-point {
+  transition: all 0.3s ease;
+}
+
+.data-point-group:hover .data-point {
+  filter: drop-shadow(0 6px 24px rgba(16, 185, 129, 1)) !important;
+  stroke-width: 4 !important;
+  r: 8;
+}
+
+/* Value label background appears on hover */
+.data-point-group:hover .value-label-bg {
+  opacity: 0.95 !important;
+}
+
+/* Value label becomes bold and white on hover */
+.data-point-group:hover .value-label {
+  opacity: 1 !important;
+  font-size: 14px !important;
+  font-weight: 900 !important;
+  fill: #ffffff !important;
+}
+
+/* Month label background appears on hover */
+.data-point-group:hover .month-label-bg {
+  opacity: 1 !important;
+}
+
+/* Month label appears on hover */
+.data-point-group:hover .month-hover-label {
+  opacity: 1 !important;
+}
+
+/* Trend Line Animation */
+.trend-line {
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+  animation: drawLine 2s ease-out forwards;
+}
+
+@keyframes drawLine {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.comparison-chart {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.comparison-item {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: 20px;
+  padding: 2rem;
+  border: 2px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.comparison-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #10b981, #3b82f6, #8b5cf6);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.comparison-item:hover {
+  border-color: #10b981;
+  box-shadow: 0 16px 50px rgba(16,185,129,0.12);
+  transform: translateY(-6px);
+}
+
+.comparison-item:hover::before {
+  opacity: 1;
+}
+
+.comparison-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.comparison-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.comparison-value {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #10b981;
+}
+
+.comparison-bar {
+  background: #e5e7eb;
+  border-radius: 8px;
+  height: 12px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.comparison-bar-fill.income-bar {
+  background: linear-gradient(90deg, #10b981, #3b82f6);
+  height: 100%;
+  border-radius: 8px 0 0 8px;
+}
+
+.comparison-bar-fill.expense-bar {
+  background: linear-gradient(90deg, #ef4444, #f59e0b);
+  height: 100%;
+  border-radius: 8px 0 0 8px;
+}
+
+.chart-value {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin: 0.5rem 0;
+}
+
+.chart-period {
+  font-size: 1rem;
+  color: #64748b;
+  margin-bottom: 0.5rem;
+}
+
+.trend-positive {
+  color: #10b981;
+  font-weight: 700;
+}
+
+.trend-negative {
+  color: #ef4444;
+  font-weight: 700;
+}
+
+/* Bar Chart Styles */
+.bar-chart {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  gap: 2rem;
+  padding: 2rem 1rem;
+  min-height: 300px;
+}
+
+.bar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+}
+
+.bar-container {
+  height: 200px;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.bar {
+  width: 100%;
+  max-width: 80px;
+  border-radius: 12px 12px 0 0;
+  position: relative;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 1rem;
+}
+
+.bar:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
+}
+
+.bar-value {
+  color: white;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.bar-label {
+  font-weight: 600;
+  color: #1e293b;
+  font-size: 0.95rem;
+}
+
+.bar-percentage {
+  color: #64748b;
+  font-size: 0.85rem;
+}
+
+/* Chart Labels */
+.chart-labels {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
+}
+
+.month-label {
+  color: #64748b;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* Line Chart Container */
+.chart-container {
+  padding: 1.5rem 0;
+}
+
+.line-chart {
+  width: 100%;
+}
+
+/* Chart Label Enhancements */
+.chart-labels text {
+  font-size: 13px;
+  font-weight: 600;
+  fill: #64748b;
+  transition: all 0.3s ease;
+}
+
+.chart-labels text:hover {
+  fill: #10b981;
+  font-size: 14px;
+}
+
+/* Y-axis grid lines */
+.y-axis-line {
+  stroke: #e2e8f0;
+  stroke-width: 1;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.y-axis-line:hover {
+  stroke: #10b981;
+  opacity: 1;
+}
+
+/* X-axis labels with hover */
+.x-label {
+  font-size: 13px;
+  fill: #64748b;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.x-label:hover {
+  fill: #10b981;
+  font-weight: 700;
+  transform: translateY(-2px);
+}
+
+/* Y-axis values */
+.y-label {
+  font-size: 12px;
+  fill: #64748b;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+/* Month labels at bottom of chart */
+.month-label {
+  display: inline-block;
+  font-size: 13px;
+  color: #64748b;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 8px;
+}
+
+.month-label:hover {
+  color: #10b981;
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  transform: translateY(-2px) scale(1.05);
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
+}
+
+/* Stats Grid for Monthly Spending */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card-trend {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border: 2px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card-trend::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #10b981, #3b82f6, #8b5cf6);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.stat-card-trend:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+  border-color: #10b981;
+}
+
+.stat-card-trend:hover::before {
+  opacity: 1;
+}
+
+.stat-icon-trend {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #ffffff;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.stat-card-trend:hover .stat-icon-trend {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.stat-content-trend {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.stat-content-trend h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #64748b;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stat-content-trend .stat-value {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin: 0;
+}
+
+.stat-content-trend .stat-label {
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+/* Insights Section */
+.insights-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.insight-item {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+  border-radius: 16px;
+  border: 2px solid #e2e8f0;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.insight-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #10b981, #3b82f6, #8b5cf6);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.insight-item:hover {
+  transform: translateX(8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  border-color: #10b981;
+}
+
+.insight-item:hover::before {
+  opacity: 1;
+}
+
+.insight-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  color: #ffffff;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.insight-item:hover .insight-icon {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+.insight-icon.positive {
+  background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.insight-icon.warning {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+.insight-icon.info {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+}
+
+.insight-text h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 0.5rem 0;
+}
+
+.insight-text p {
+  font-size: 0.95rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Category Grid for Side-by-Side Layout */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.category-box {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border: 2px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.category-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.category-box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+  border-color: #667eea;
+}
+
+.category-box:hover::before {
+  transform: scaleX(1);
+}
+
+.category-box-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.category-box-header .category-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.category-box:hover .category-icon {
+  transform: scale(1.15) rotate(-5deg);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.category-box-header h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.category-box:hover .category-box-header h4 {
+  color: #667eea;
+}
+
+.category-box-content {
+  text-align: left;
+}
+
+.category-amount-large {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.category-box:hover .category-amount-large {
+  color: #667eea;
+  transform: scale(1.05);
+}
+
+.category-percentage {
+  font-size: 0.95rem;
+  color: #64748b;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.progress-bar-horizontal {
+  width: 100%;
+  height: 8px;
+  background: #e2e8f0;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-fill-animated {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-fill-animated::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.5),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  50%, 100% {
+    left: 100%;
+  }
+}
+
+@media (max-width: 900px) {
+  .trends-header {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem 1rem;
+  }
+  .trends-content {
+    gap: 1.2rem;
+  }
+  .trend-card {
+    padding: 1.2rem;
+  }
+  .bar-chart {
+    gap: 1rem;
+    padding: 1rem 0.5rem;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+}

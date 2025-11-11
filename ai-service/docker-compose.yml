@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  ai-service:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=mysql://ai_user:ai_password@ai-mysql:3306/ai_insights
+      - REDIS_URL=redis://ai-redis:6379
+    depends_on:
+      - ai-mysql
+      - ai-redis
+    volumes:
+      - .:/app
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+
+  ai-mysql:
+    image: mysql:8.0
+    environment:
+      - MYSQL_DATABASE=ai_insights
+      - MYSQL_USER=ai_user
+      - MYSQL_PASSWORD=ai_password
+      - MYSQL_ROOT_PASSWORD=root_password
+    ports:
+      - "3307:3306"
+    volumes:
+      - ai_mysql_data:/var/lib/mysql
+
+  ai-redis:
+    image: redis:7-alpine
+    ports:
+      - "6380:6379"
+    volumes:
+      - ai_redis_data:/data
+
+volumes:
+  ai_mysql_data:
+  ai_redis_data:

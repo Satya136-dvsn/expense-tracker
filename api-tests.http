@@ -1,0 +1,501 @@
+### Budget Tracker API Tests - Milestone 3
+### REST Client Test File for VS Code
+### 
+### SETUP INSTRUCTIONS:
+### 1. Install "REST Client" extension in VS Code
+### 2. Start backend: cd backend && mvn spring-boot:run
+### 3. Run database migration: mysql -u root -p budget_tracker < backend/milestone3_database_setup.sql
+### 4. Click "Send Request" above any request below
+### 5. Responses will appear in a split view
+###
+### USAGE:
+### - Run "Login" first to get JWT token (auto-saved)
+### - Token is automatically used in subsequent requests
+### - Variables are defined at the top
+### - Separate requests with ###
+
+###############################################
+# VARIABLES
+###############################################
+
+@baseUrl = http://localhost:8080
+@contentType = application/json
+
+# These variables are populated automatically after requests
+# @token will be set after successful login
+# @budgetId will be set after creating a budget
+# @goalId will be set after creating a savings goal
+
+###############################################
+# 🔐 AUTHENTICATION
+###############################################
+
+### Login - Run this FIRST to get JWT token
+# @name login
+POST {{baseUrl}}/api/auth/login
+Content-Type: {{contentType}}
+
+{
+  "username": "testuser1",
+  "password": "password123"
+}
+
+### Register New User (optional)
+POST {{baseUrl}}/api/auth/register
+Content-Type: {{contentType}}
+
+{
+  "username": "newuser",
+  "password": "password123",
+  "email": "newuser@example.com",
+  "fullName": "New User"
+}
+
+###############################################
+# 💰 BUDGET MANAGEMENT APIs (8 endpoints)
+###############################################
+
+### 1. Create Budget
+# @name createBudget
+POST {{baseUrl}}/api/budgets
+Content-Type: {{contentType}}
+Authorization: Bearer {{login.response.body.token}}
+
+{
+  "category": "Food & Dining",
+  "budgetAmount": 500.00,
+  "month": 1,
+  "year": 2025
+}
+
+### 2. Create Another Budget (Entertainment)
+POST {{baseUrl}}/api/budgets
+Content-Type: {{contentType}}
+Authorization: Bearer {{login.response.body.token}}
+
+{
+  "category": "Entertainment",
+  "budgetAmount": 200.00,
+  "month": 1,
+  "year": 2025
+}
+
+### 3. Create Another Budget (Transportation)
+POST {{baseUrl}}/api/budgets
+Content-Type: {{contentType}}
+Authorization: Bearer {{login.response.body.token}}
+
+{
+  "category": "Transportation",
+  "budgetAmount": 300.00,
+  "month": 1,
+  "year": 2025
+}
+
+### 4. Get All Budgets for User
+GET {{baseUrl}}/api/budgets
+Authorization: Bearer {{login.response.body.token}}
+
+### 5. Get Current Month Budgets
+GET {{baseUrl}}/api/budgets/current-month
+Authorization: Bearer {{login.response.body.token}}
+
+### 6. Get Budgets for Specific Month/Year (January 2025)
+GET {{baseUrl}}/api/budgets/month/1/year/2025
+Authorization: Bearer {{login.response.body.token}}
+
+### 7. Get Budget by ID (change ID as needed)
+GET {{baseUrl}}/api/budgets/1
+Authorization: Bearer {{login.response.body.token}}
+
+### 8. Update Budget
+PUT {{baseUrl}}/api/budgets/1
+Content-Type: {{contentType}}
+Authorization: Bearer {{login.response.body.token}}
+
+{
+  "category": "Food & Dining",
+  "budgetAmount": 600.00,
+  "month": 1,
+  "year": 2025
+}
+
+### 9. Recalculate All Budgets (updates spent amounts from transactions)
+POST {{baseUrl}}/api/budgets/recalculate
+Authorization: Bearer {{login.response.body.token}}
+
+### 10. Delete Budget (careful!)
+DELETE {{baseUrl}}/api/budgets/999
+Authorization: Bearer {{login.response.body.token}}
+
+###############################################
+# 🎯 SAVINGS GOALS APIs (12 endpoints)
+###############################################
+
+### 1. Create Savings Goal
+# @name createGoal
+POST {{baseUrl}}/api/savings-goals
+Content-Type: {{contentType}}
+Authorization: Bearer {{login.response.body.token}}
+
+{
+  "name": "Emergency Fund",
+  "description": "Build 6 months of expenses",
+  "targetAmount": 10000.00,
+  "targetDate": "2025-12-31"
+}
+
+### 2. Create Another Savings Goal (Vacation)
+POST {{baseUrl}}/api/savings-goals
+Content-Type: {{contentType}}
+Authorization: Bearer {{login.response.body.token}}
+
+{
+  "name": "Vacation Fund",
+  "description": "Trip to Europe",
+  "targetAmount": 5000.00,
+  "targetDate": "2025-08-01"
+}
+
+### 3. Create Another Savings Goal (Car)
+POST {{baseUrl}}/api/savings-goals
+Content-Type: {{contentType}}
+Authorization: Bearer {{login.response.body.token}}
+
+{
+  "name": "New Car Down Payment",
+  "description": "Save for down payment",
+  "targetAmount": 15000.00,
+  "targetDate": "2026-06-30"
+}
+
+### 4. Get All Savings Goals
+GET {{baseUrl}}/api/savings-goals
+Authorization: Bearer {{login.response.body.token}}
+
+### 5. Get Active Savings Goals Only (IN_PROGRESS status)
+GET {{baseUrl}}/api/savings-goals/active
+Authorization: Bearer {{login.response.body.token}}
+
+### 6. Get Savings Goals by Status - IN_PROGRESS
+GET {{baseUrl}}/api/savings-goals/status/IN_PROGRESS
+Authorization: Bearer {{login.response.body.token}}
+
+### 7. Get Savings Goals by Status - COMPLETED
+GET {{baseUrl}}/api/savings-goals/status/COMPLETED
+Authorization: Bearer {{login.response.body.token}}
+
+### 8. Get Savings Goals by Status - CANCELLED
+GET {{baseUrl}}/api/savings-goals/status/CANCELLED
+Authorization: Bearer {{login.response.body.token}}
+
+### 9. Get Savings Goal by ID
+GET {{baseUrl}}/api/savings-goals/1
+Authorization: Bearer {{login.response.body.token}}
+
+### 10. Update Savings Goal
+PUT {{baseUrl}}/api/savings-goals/1
+Content-Type: {{contentType}}
+Authorization: Bearer {{login.response.body.token}}
+
+{
+  "name": "Emergency Fund",
+  "description": "Updated: Build 12 months of expenses",
+  "targetAmount": 15000.00,
+  "targetDate": "2025-12-31"
+}
+
+### 11. Update Progress - Add Funds (+500)
+PATCH {{baseUrl}}/api/savings-goals/1/progress
+Content-Type: {{contentType}}
+Authorization: Bearer {{login.response.body.token}}
+
+{
+  "amount": 500.00
+}
+
+### 12. Update Progress - Add More Funds (+1000)
+PATCH {{baseUrl}}/api/savings-goals/1/progress
+Content-Type: {{contentType}}
+Authorization: Bearer {{login.response.body.token}}
+
+{
+  "amount": 1000.00
+}
+
+### 13. Update Progress - Withdraw Funds (-200)
+PATCH {{baseUrl}}/api/savings-goals/1/progress
+Content-Type: {{contentType}}
+Authorization: Bearer {{login.response.body.token}}
+
+{
+  "amount": -200.00
+}
+
+### 14. Set Current Amount (Absolute Value)
+PATCH {{baseUrl}}/api/savings-goals/1/amount
+Content-Type: {{contentType}}
+Authorization: Bearer {{login.response.body.token}}
+
+{
+  "amount": 2500.00
+}
+
+### 15. Complete Savings Goal
+PATCH {{baseUrl}}/api/savings-goals/1/complete
+Authorization: Bearer {{login.response.body.token}}
+
+### 16. Cancel Savings Goal
+PATCH {{baseUrl}}/api/savings-goals/2/cancel
+Authorization: Bearer {{login.response.body.token}}
+
+### 17. Reopen Savings Goal
+PATCH {{baseUrl}}/api/savings-goals/1/reopen
+Authorization: Bearer {{login.response.body.token}}
+
+### 18. Delete Savings Goal (careful!)
+DELETE {{baseUrl}}/api/savings-goals/999
+Authorization: Bearer {{login.response.body.token}}
+
+###############################################
+# 🧪 INTEGRATION TESTS
+###############################################
+
+### Test 1: Budget Auto-Calculation Workflow
+### Step 1: Create a budget for Food & Dining
+POST {{baseUrl}}/api/budgets
+Content-Type: {{contentType}}
+Authorization: Bearer {{login.response.body.token}}
+
+{
+  "category": "Food & Dining",
+  "budgetAmount": 500.00,
+  "month": 1,
+  "year": 2025
+}
+
+### Step 2: Create an expense transaction
+POST {{baseUrl}}/api/transactions
+Content-Type: {{contentType}}
+Authorization: Bearer {{login.response.body.token}}
+
+{
+  "title": "Grocery Shopping",
+  "amount": 150.00,
+  "type": "EXPENSE",
+  "category": "Food & Dining",
+  "date": "2025-01-05",
+  "description": "Weekly groceries"
+}
+
+### Step 3: Recalculate budgets
+POST {{baseUrl}}/api/budgets/recalculate
+Authorization: Bearer {{login.response.body.token}}
+
+### Step 4: Check budget - spentAmount should be 150.00
+GET {{baseUrl}}/api/budgets
+Authorization: Bearer {{login.response.body.token}}
+
+### Test 2: Savings Goal Lifecycle
+### Step 1: Create a goal
+POST {{baseUrl}}/api/savings-goals
+Content-Type: {{contentType}}
+Authorization: Bearer {{login.response.body.token}}
+
+{
+  "name": "Test Goal",
+  "targetAmount": 1000.00,
+  "targetDate": "2025-12-31"
+}
+
+### Step 2: Add funds (50%)
+PATCH {{baseUrl}}/api/savings-goals/1/progress
+Content-Type: {{contentType}}
+Authorization: Bearer {{login.response.body.token}}
+
+{
+  "amount": 500.00
+}
+
+### Step 3: Check progress (should show 50%)
+GET {{baseUrl}}/api/savings-goals/1
+Authorization: Bearer {{login.response.body.token}}
+
+### Step 4: Complete the goal by adding remaining amount
+PATCH {{baseUrl}}/api/savings-goals/1/progress
+Content-Type: {{contentType}}
+Authorization: Bearer {{login.response.body.token}}
+
+{
+  "amount": 500.00
+}
+
+### Step 5: Verify auto-completion (status should be COMPLETED)
+GET {{baseUrl}}/api/savings-goals/1
+Authorization: Bearer {{login.response.body.token}}
+
+###############################################
+# 📊 EXISTING APIs (For Reference)
+###############################################
+
+### Get All Categories
+GET {{baseUrl}}/api/categories
+Authorization: Bearer {{login.response.body.token}}
+
+### Get Expense Categories
+GET {{baseUrl}}/api/categories/expense
+Authorization: Bearer {{login.response.body.token}}
+
+### Get Income Categories
+GET {{baseUrl}}/api/categories/income
+Authorization: Bearer {{login.response.body.token}}
+
+### Get All Transactions
+GET {{baseUrl}}/api/transactions
+Authorization: Bearer {{login.response.body.token}}
+
+### Create Transaction
+POST {{baseUrl}}/api/transactions
+Content-Type: {{contentType}}
+Authorization: Bearer {{login.response.body.token}}
+
+{
+  "title": "Test Transaction",
+  "amount": 100.00,
+  "type": "EXPENSE",
+  "category": "Food & Dining",
+  "date": "2025-01-07",
+  "description": "Test expense"
+}
+
+### Get User Profile
+GET {{baseUrl}}/api/profile
+Authorization: Bearer {{login.response.body.token}}
+
+### Get Financial Reports
+GET {{baseUrl}}/api/reports/summary
+Authorization: Bearer {{login.response.body.token}}
+
+###############################################
+# 🔍 VALIDATION TESTS (Should Return Errors)
+###############################################
+
+### Test: Missing Required Field (should fail)
+POST {{baseUrl}}/api/budgets
+Content-Type: {{contentType}}
+Authorization: Bearer {{login.response.body.token}}
+
+{
+  "budgetAmount": 500.00,
+  "month": 1,
+  "year": 2025
+}
+
+### Test: Invalid Month (should fail)
+POST {{baseUrl}}/api/budgets
+Content-Type: {{contentType}}
+Authorization: Bearer {{login.response.body.token}}
+
+{
+  "category": "Food & Dining",
+  "budgetAmount": 500.00,
+  "month": 13,
+  "year": 2025
+}
+
+### Test: Negative Budget Amount (should fail)
+POST {{baseUrl}}/api/budgets
+Content-Type: {{contentType}}
+Authorization: Bearer {{login.response.body.token}}
+
+{
+  "category": "Food & Dining",
+  "budgetAmount": -100.00,
+  "month": 1,
+  "year": 2025
+}
+
+### Test: Duplicate Budget (should fail after first creation)
+POST {{baseUrl}}/api/budgets
+Content-Type: {{contentType}}
+Authorization: Bearer {{login.response.body.token}}
+
+{
+  "category": "Food & Dining",
+  "budgetAmount": 500.00,
+  "month": 1,
+  "year": 2025
+}
+
+### Test: Unauthorized Request (no token - should fail)
+GET {{baseUrl}}/api/budgets
+
+### Test: Invalid Token (should fail)
+GET {{baseUrl}}/api/budgets
+Authorization: Bearer invalid_token_here
+
+###############################################
+# 📝 NOTES
+###############################################
+
+# JWT Token:
+# - Obtained from login request
+# - Automatically saved in {{login.response.body.token}}
+# - Valid for duration configured in backend
+# - Re-login if you get 401 Unauthorized
+
+# Response Codes:
+# - 200 OK: Success (GET, PUT, PATCH)
+# - 201 Created: Resource created (POST)
+# - 204 No Content: Success with no body (DELETE)
+# - 400 Bad Request: Validation error
+# - 401 Unauthorized: Missing/invalid token
+# - 404 Not Found: Resource doesn't exist
+# - 409 Conflict: Duplicate resource
+
+# Tips:
+# - Run requests in order for best results
+# - Check response status and body
+# - Variables persist across requests
+# - Use Ctrl+Alt+R to send request
+# - Use Ctrl+Alt+C to cancel request
+
+###############################################
+# ✅ TESTING CHECKLIST
+###############################################
+
+# Budget APIs:
+# [ ] Create budget - POST /api/budgets
+# [ ] Get all budgets - GET /api/budgets
+# [ ] Get current month - GET /api/budgets/current-month
+# [ ] Get by month/year - GET /api/budgets/month/{m}/year/{y}
+# [ ] Get by ID - GET /api/budgets/{id}
+# [ ] Update budget - PUT /api/budgets/{id}
+# [ ] Recalculate - POST /api/budgets/recalculate
+# [ ] Delete budget - DELETE /api/budgets/{id}
+
+# Savings Goals APIs:
+# [ ] Create goal - POST /api/savings-goals
+# [ ] Get all goals - GET /api/savings-goals
+# [ ] Get active goals - GET /api/savings-goals/active
+# [ ] Get by status - GET /api/savings-goals/status/{status}
+# [ ] Get by ID - GET /api/savings-goals/{id}
+# [ ] Update goal - PUT /api/savings-goals/{id}
+# [ ] Add funds - PATCH /api/savings-goals/{id}/progress
+# [ ] Set amount - PATCH /api/savings-goals/{id}/amount
+# [ ] Complete goal - PATCH /api/savings-goals/{id}/complete
+# [ ] Cancel goal - PATCH /api/savings-goals/{id}/cancel
+# [ ] Reopen goal - PATCH /api/savings-goals/{id}/reopen
+# [ ] Delete goal - DELETE /api/savings-goals/{id}
+
+# Integration Tests:
+# [ ] Budget auto-calculation from transactions
+# [ ] Savings goal auto-completion
+# [ ] Over-budget detection
+# [ ] Progress percentage calculation
+# [ ] Status transitions
+# [ ] Validation errors
+
+###############################################
+# 🎉 END OF TEST FILE
+###############################################
