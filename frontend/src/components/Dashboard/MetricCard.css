@@ -1,0 +1,29 @@
+.metric-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.metric-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.metric-card-icon {
+  font-size: var(--type-scale-h3);
+}
+
+.metric-card-trend {
+  font-weight: var(--font-weight-bold);
+}
+
+.metric-card-value {
+  font-size: var(--type-scale-h1);
+  font-weight: var(--font-weight-bold);
+}
+
+.metric-card-title {
+  font-size: var(--type-scale-small);
+  color: var(--neutral-400);
+}

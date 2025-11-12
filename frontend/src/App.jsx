@@ -2,6 +2,7 @@ import React, { Suspense, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { AlertProvider } from './hooks/useAlert';
+import { ToastProvider } from './contexts/ToastContext.jsx';
 import { initProfessionalAnimations } from './utils/animations';
 // import { removeDemoElements } from './utils/removeDemoElements';
 
@@ -349,11 +350,13 @@ function App() {
     <ErrorBoundary>
       <AuthProvider>
         <AlertProvider>
-          <Router>
-            <div className="glassmorphism-app-wrapper">
-              <AppContent />
-            </div>
-          </Router>
+          <ToastProvider>
+            <Router>
+              <div className="glassmorphism-app-wrapper">
+                <AppContent />
+              </div>
+            </Router>
+          </ToastProvider>
         </AlertProvider>
       </AuthProvider>
     </ErrorBoundary>

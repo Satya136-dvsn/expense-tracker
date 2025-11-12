@@ -13,9 +13,11 @@ import PureCategoryChart from './PureCategoryChart';
 import ErrorBoundary from '../Common/ErrorBoundary';
 import { GlassCard, GlassButton, GlassModal, GlassInput, GlassDropdown } from '../Glass';
 import WelcomeTour from '../Common/WelcomeTour';
+import MetricCard from './MetricCard';
 import './Dashboard.css';
 
 const Dashboard = () => {
+    console.log("Rendering Dashboard");
   const { user, loadUserProfile } = useAuth();
   const { showAlert } = useAlert();
   const navigate = useNavigate();
@@ -362,38 +364,24 @@ const Dashboard = () => {
         </div>
         
         <div className="dashboard-stats">
-          <GlassCard variant="primary" className="stat-card-glass">
-            <div className="stat-icon">
-              <span className="emoji-icon">💵</span>
-            </div>
-            <div className="stat-content">
-              <h3>Monthly Income</h3>
-              <span className="stat-amount">{formatCurrency(user.monthlyIncome)}</span>
-              <span className="stat-label">Total Income</span>
-            </div>
-          </GlassCard>
-          
-          <GlassCard variant="secondary" className="stat-card-glass">
-            <div className="stat-icon">
-              <span className="emoji-icon">🛒</span>
-            </div>
-            <div className="stat-content">
-              <h3>Target Expenses</h3>
-              <span className="stat-amount">{formatCurrency(user.targetExpenses)}</span>
-              <span className="stat-label">{expenseRatio}% of income</span>
-            </div>
-          </GlassCard>
-          
-          <GlassCard variant="accent" className="stat-card-glass">
-            <div className="stat-icon">
-              <span className="emoji-icon">🏦</span>
-            </div>
-            <div className="stat-content">
-              <h3>Current Savings</h3>
-              <span className="stat-amount">{formatCurrency(user.currentSavings)}</span>
-              <span className="stat-label">{savingsRate}% savings rate</span>
-            </div>
-          </GlassCard>
+          <MetricCard
+            title="Monthly Income"
+            value={formatCurrency(user.monthlyIncome)}
+            trend={netWorthGrowth}
+            icon="💵"
+          />
+          <MetricCard
+            title="Target Expenses"
+            value={formatCurrency(user.targetExpenses)}
+            trend={-expenseRatio}
+            icon="🛒"
+          />
+          <MetricCard
+            title="Current Savings"
+            value={formatCurrency(user.currentSavings)}
+            trend={savingsRate}
+            icon="🏦"
+          />
         </div>
 
         {/* Quick Actions and View Trends Row */}

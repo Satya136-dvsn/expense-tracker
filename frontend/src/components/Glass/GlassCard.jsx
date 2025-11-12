@@ -1,10 +1,10 @@
 import React from 'react';
-import './GlassCard.css';
 
 const GlassCard = ({ 
   children, 
   variant = 'primary', 
   size = 'md',
+  elevation = 2,
   hover = true,
   glow = false,
   animated = true,
@@ -14,6 +14,7 @@ const GlassCard = ({
 }) => {
   const cardClasses = [
     'glass-card',
+    `glass-card-elevation-${elevation}`,
     `glass-card-${variant}`,
     `glass-card-${size}`,
     hover && 'glass-card-hover',

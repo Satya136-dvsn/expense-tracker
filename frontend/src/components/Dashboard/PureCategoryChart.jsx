@@ -14,17 +14,14 @@ const PureCategoryChart = () => {
   const [chartData, setChartData] = useState(null);
 
   useEffect(() => {
-    // Generate demo data for the chart
     const generateDemoData = () => {
       const categories = [
-        { name: 'Food & Dining', amount: 8500, color: '#10b981' },
-        { name: 'Transportation', amount: 6200, color: '#3b82f6' },
-        { name: 'Shopping', amount: 4800, color: '#8b5cf6' },
-        { name: 'Entertainment', amount: 3200, color: '#f59e0b' },
-        { name: 'Bills & Utilities', amount: 2800, color: '#ef4444' }
+        { name: 'Food & Dining', amount: 8500, color: 'var(--accent-500)' },
+        { name: 'Transportation', amount: 6200, color: 'var(--primary-500)' },
+        { name: 'Shopping', amount: 4800, color: 'var(--secondary-500)' },
+        { name: 'Entertainment', amount: 3200, color: 'var(--warning)' },
+        { name: 'Bills & Utilities', amount: 2800, color: 'var(--error)' }
       ];
-
-      const total = categories.reduce((sum, cat) => sum + cat.amount, 0);
 
       return {
         labels: categories.map(cat => cat.name),
@@ -32,11 +29,8 @@ const PureCategoryChart = () => {
           {
             data: categories.map(cat => cat.amount),
             backgroundColor: categories.map(cat => cat.color),
-            borderColor: categories.map(cat => cat.color),
+            borderColor: 'rgba(0,0,0,0.2)',
             borderWidth: 2,
-            hoverBackgroundColor: categories.map(cat => cat.color),
-            hoverBorderColor: '#ffffff',
-            hoverBorderWidth: 3,
           }
         ]
       };
@@ -50,7 +44,7 @@ const PureCategoryChart = () => {
     maintainAspectRatio: false,
     plugins: {
       legend: {
-        display: false, // Hide legend for clean look
+        display: false,
       },
       tooltip: {
         backgroundColor: 'rgba(0, 0, 0, 0.8)',
@@ -60,7 +54,6 @@ const PureCategoryChart = () => {
         borderWidth: 1,
         cornerRadius: 8,
         padding: 12,
-        displayColors: true,
         callbacks: {
           label: function(context) {
             const total = context.dataset.data.reduce((a, b) => a + b, 0);
@@ -70,33 +63,21 @@ const PureCategoryChart = () => {
         }
       }
     },
-    elements: {
-      arc: {
-        borderWidth: 2,
-        hoverBorderWidth: 3
-      }
+    cutout: '70%',
+    animation: {
+      duration: 800,
+      easing: 'easeOutQuart',
+      animateRotate: true,
+      animateScale: true,
     },
-    cutout: 0, // Full pie chart
-    radius: '90%', // Make it fill most of the container
   };
 
   if (!chartData) {
-    return (
-      <div style={{ 
-        display: 'flex', 
-        alignItems: 'center', 
-        justifyContent: 'center', 
-        height: '100%',
-        color: '#6b7280',
-        fontSize: '14px'
-      }}>
-        Loading chart...
-      </div>
-    );
+    return <div>Loading chart...</div>;
   }
 
   return (
-    <div style={{ width: '100%', height: '100%', position: 'relative' }}>
+    <div style={{ width: '100%', height: '100%' }}>
       <Pie data={chartData} options={chartOptions} />
     </div>
   );

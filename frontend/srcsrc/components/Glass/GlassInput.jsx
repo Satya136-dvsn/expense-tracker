@@ -1,6 +1,7 @@
 import React, { useState, forwardRef } from 'react';
+import './GlassInput.css';
 
-const GlassInput = forwardRef(({ 
+const GlassInput = forwardRef(({
   type = 'text',
   placeholder = ' ',
   label = '',
@@ -9,7 +10,7 @@ const GlassInput = forwardRef(({
   disabled = false,
   icon = null,
   className = '',
-  ...props 
+  ...props
 }, ref) => {
   const [focused, setFocused] = useState(false);
 
@@ -45,11 +46,8 @@ const GlassInput = forwardRef(({
         className={inputClasses}
         onFocus={handleFocus}
         onBlur={handleBlur}
-        aria-invalid={!!error}
-        aria-describedby={error ? `${props.id}-error` : null}
         {...props}
       />
-      {error && <p id={`${props.id}-error`} className="sr-only">{error}</p>}
       {label && (
         <label className="glass-input-label">
           {label}
