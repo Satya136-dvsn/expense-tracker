@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { fadeIn, scaleIn, stagger } from '../../utils/animations';
+import './GlassModal.css';
 
-const GlassModal = ({ 
+const GlassModal = ({
   isOpen = false,
   onClose,
   title = '',
   children,
-  ...props 
+  ...props
 }) => {
   useEffect(() => {
     const handleEscape = (e) => {
@@ -32,8 +33,6 @@ const GlassModal = ({
       {isOpen && (
         <motion.div
           className="modal-backdrop"
-          role="dialog"
-          aria-modal="true"
           variants={fadeIn}
           initial="initial"
           animate="animate"

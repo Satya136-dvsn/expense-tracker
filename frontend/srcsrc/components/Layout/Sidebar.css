@@ -1,0 +1,75 @@
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(var(--blur-heavy));
+  -webkit-backdrop-filter: blur(var(--blur-heavy));
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 1000;
+  transition: width 0.3s var(--ease-in-out);
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-5);
+}
+
+.sidebar-collapsed {
+  width: 80px;
+}
+
+.sidebar-expanded {
+  width: 280px;
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  cursor: pointer;
+  color: white;
+  font-size: var(--type-scale-h4);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-7);
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  flex: 1;
+}
+
+.sidebar-button {
+  width: 100%;
+  background: transparent;
+  color: var(--neutral-300);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: var(--spacing-3);
+  cursor: pointer;
+  transition: all 0.2s var(--ease-out);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  font-size: var(--type-scale-body);
+}
+
+.sidebar-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.sidebar-button-active {
+  background: var(--primary-500);
+  color: white;
+  box-shadow: var(--glow-primary);
+}
+
+.sidebar-button-icon {
+  font-size: 20px;
+}
+
+.sidebar-logout {
+  margin-top: auto;
+}
