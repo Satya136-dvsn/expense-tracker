@@ -503,6 +503,101 @@ class ApiService {
     return response.blob();
   }
 
+  async exportTransactionsPdf(startDate, endDate) {
+    const params = new URLSearchParams();
+    if (startDate) params.append('startDate', startDate);
+    if (endDate) params.append('endDate', endDate);
+    
+    const config = {
+      method: 'GET',
+      headers: this.getHeaders('GET')
+    };
+    
+    const url = `${this.baseUrl}/api/export/transactions/pdf${params.toString() ? '?' + params.toString() : ''}`;
+    const response = await fetch(url, config);
+    
+    if (!response.ok) {
+      throw new Error('Failed to export transactions to PDF');
+    }
+    
+    return response.blob();
+  }
+
+  async exportTransactionsCsv(startDate, endDate) {
+    const params = new URLSearchParams();
+    if (startDate) params.append('startDate', startDate);
+    if (endDate) params.append('endDate', endDate);
+    
+    const config = {
+      method: 'GET',
+      headers: this.getHeaders('GET')
+    };
+    
+    const url = `${this.baseUrl}/api/export/transactions/csv${params.toString() ? '?' + params.toString() : ''}`;
+    const response = await fetch(url, config);
+    
+    if (!response.ok) {
+      throw new Error('Failed to export transactions to CSV');
+    }
+    
+    return response.blob();
+  }
+
+  async exportAnalyticsPdf() {
+    const config = {
+      method: 'GET',
+      headers: this.getHeaders('GET')
+    };
+    
+    const response = await fetch(`${this.baseUrl}/api/export/analytics/pdf`, config);
+    
+    if (!response.ok) {
+      throw new Error('Failed to export analytics to PDF');
+    }
+    
+    return response.blob();
+  }
+
+  async exportComprehensiveReport(startDate, endDate) {
+    const params = new URLSearchParams();
+    if (startDate) params.append('startDate', startDate);
+    if (endDate) params.append('endDate', endDate);
+    
+    const config = {
+      method: 'GET',
+      headers: this.getHeaders('GET')
+    };
+    
+    const url = `${this.baseUrl}/api/export/comprehensive${params.toString() ? '?' + params.toString() : ''}`;
+    const response = await fetch(url, config);
+    
+    if (!response.ok) {
+      throw new Error('Failed to export comprehensive report');
+    }
+    
+    return response.blob();
+  }
+
+  async exportToExcel(startDate, endDate) {
+    const params = new URLSearchParams();
+    if (startDate) params.append('startDate', startDate);
+    if (endDate) params.append('endDate', endDate);
+    
+    const config = {
+      method: 'GET',
+      headers: this.getHeaders('GET')
+    };
+    
+    const url = `${this.baseUrl}/api/export/excel${params.toString() ? '?' + params.toString() : ''}`;
+    const response = await fetch(url, config);
+    
+    if (!response.ok) {
+      throw new Error('Failed to export to Excel');
+    }
+    
+    return response.blob();
+  }
+
   async getExportPreview(startDate, endDate) {
     const params = new URLSearchParams();
     if (startDate) params.append('startDate', startDate);
